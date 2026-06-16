@@ -2,17 +2,19 @@
   "name": "j-axon-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Frontend web para J-AXON.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
