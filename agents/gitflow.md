@@ -83,3 +83,23 @@ pnpm run test
 - Componentes documentados si aplica.
 - PR aprobado por al menos un compañero.
 - Issue y tablero actualizados.
+
+## GESTORES DE PAQUETES
+
+**REGLA OBLIGATORIA:** Usar exclusivamente los gestores oficiales del proyecto.
+
+| Gestor | Comandos permitidos | Comandos PROHIBIDOS |
+|---|---|---|
+| JavaScript (pnpm) | `pnpm add`, `pnpm remove`, `pnpm install` | `npm install`, `npm add`, `yarn` |
+
+**Razón:** Seguridad, reproducibilidad y lockfiles consistentes.
+
+**Instalación de dependencias:**
+```bash
+# Correcto
+pnpm install
+
+# PROHIBIDO
+npm install
+yarn install
+```
