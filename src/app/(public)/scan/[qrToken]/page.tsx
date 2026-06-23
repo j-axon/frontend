@@ -1,10 +1,10 @@
-type ScanPageProps = {
+type ScanQrPageProps = {
   params: Promise<{
     qrToken: string;
   }>;
 };
 
-export default async function ScanQrPage({ params }: ScanPageProps) {
+export default async function ScanQrPage({ params }: ScanQrPageProps) {
   const { qrToken } = await params;
 
   return (
