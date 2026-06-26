@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  // Punto inicial para protección de rutas y RBAC.
+  // Entry point for route protection and RBAC.
   return NextResponse.next();
 }
 

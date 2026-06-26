@@ -2,26 +2,35 @@
   "name": "j-axon-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Frontend web para J-AXON.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@tailwindcss/postcss": "^4.3.1",
+    "@tanstack/react-query": "^5.101.1",
+    "axios": "^1.18.0",
+    "html5-qrcode": "^2.3.8",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "zod": "latest"
+    "react-hook-form": "^7.80.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@playwright/test": "latest",
+    "@tanstack/react-query-devtools": "^5.101.1",
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
+    "@types/jest": "^30.0.0",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
