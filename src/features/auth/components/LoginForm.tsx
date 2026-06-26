@@ -6,9 +6,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormData } from "../schemas/login.schema";
 import { useAuth } from "../hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 export const LoginForm: React.FC = () => {
   const { loginUser, isLoading } = useAuth();
+  const router = useRouter();
   const [serverError, setServerError] = useState<string | null>(null);
 
   const {
@@ -23,7 +25,7 @@ export const LoginForm: React.FC = () => {
     setServerError(null);
     try {
       await loginUser(data);
-      window.location.href = "/dashboard";
+      router.push("/dashboard");
     } catch (error: any) {
       setServerError("Invalid credentials or server connection error.");
     }

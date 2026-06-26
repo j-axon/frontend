@@ -9,9 +9,9 @@ export default async function ScanQrPage({ params }: ScanPageProps) {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center gap-4 p-8">
-      <h1 className="text-3xl font-bold">Crear ticket por QR</h1>
-      <p>Token QR recibido: {qrToken}</p>
-      <p>Aquí se cargará la información pública segura del activo.</p>
+      <h1 className="text-3xl font-bold">Create Ticket via QR</h1>
+      <p>QR token received: {qrToken}</p>
+      <p>Secure public asset info will be loaded here.</p>
     </main>
   );
 }

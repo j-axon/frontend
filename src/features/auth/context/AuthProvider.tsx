@@ -10,7 +10,7 @@ interface AuthContextType{
     isAuthenticated : boolean;
     isLoading : boolean;
     loginUser: (Credential: LoginDTO) => Promise<void>;
-    LogoutUser: () => Promise<void>;
+    logoutUser: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{children : React.ReactNode}> = ({children})
             setIsloading(false);
         }
     };
-    const LogoutUser = async() =>{
+    const logoutUser = async() =>{
         try{
             await authService.logout();
         }finally{
@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<{children : React.ReactNode}> = ({children})
         }
     };
     return(
-        <AuthContext.Provider value={{user, isAuthenticated: !!user, isLoading, loginUser, LogoutUser}}>
+        <AuthContext.Provider value={{user, isAuthenticated: !!user, isLoading, loginUser, logoutUser}}>
             {children}    </AuthContext.Provider>
     );
 }
