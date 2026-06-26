@@ -241,3 +241,59 @@ Centralized Axios HTTP client with typed errors, standardized status codes, TanS
 - Standardized error format
 - All tests pass
 - Documented
+
+### HU-FE-005: Flujo de Escaneo QR para Tickets
+
+Este módulo implementa la funcionalidad de escaneo de códigos QR mediante la cámara del dispositivo móvil para la identificación ágil de activos físicos y su posterior redirección al flujo de apertura de tickets en J-AXON.
+
+### Características Clave
+Escaneo Nativo: Integración con la cámara trasera mediante la librería html5-qrcode.
+
+### Validación de Carga Últil (Payload):
+ Motor regex para identificar UUIDs válidos antes de realizar peticiones innecesarias al backend.
+
+### Integración del Cliente HTTP: 
+Consumo del servicio centralizado mediante Axios (httpClient) para validar la existencia real del activo.
+
+### Redirección Veloz: 
+Inyección de query strings en los parámetros de la URL (/tickets/new?assetId=...) para el auto-llenado inmediato del formulario en la HU-6.
+
+### Estructura del Módulo
+### Plaintext
+src/
+├── app/
+│   └── (protected)/
+│       └── tickets/
+│           └── scan/
+│               └── page.tsx           # Página contenedora (Loading y Orquestación)
+├── features/
+│   ├── assets/
+│   │   ├── services/
+│   │   │   └── asset-qr.service.ts   # Endpoint /assets/qr/:uuid
+│   │   └── types/
+│   │       └── asset-qr.types.ts     # Interfaces y Contratos de Datos
+│   └── qr/
+│       ├── components/
+│       │   └── QrScanner.tsx         # Componente de la cámara e interfaz de usuario
+│       ├── hooks/
+│       │   └── useQrScanner.ts       # Hook de ciclo de vida del scanner y permisos
+│       └── utils/
+│           └── validateQrPayload.ts  # Validador de formato UUID
+
+### Flujo de Operación
+Lectura: El usuario apunta al código QR. QrScanner.tsx captura el string codificado.
+
+### Validación Local:
+ validateQrPayload.ts comprueba si contiene un UUID válido. Si falla, corta el flujo e informa al usuario.
+
+### Verificación de Red:
+ El componente page.tsx activa el estado de carga (LoadingState) y realiza el fetch a través de assetQrService.getAssetByUuid.
+
+### Navegación:
+ Al recibir un código 200 OK, el cliente redirige con router.push() enviando el id y code del activo al formulario de tickets.
+
+### Manejo de Errores e Impactos
+Permiso de Cámara Denegado: Atrapa el error nativo del navegador informando amigablemente al operador con instrucciones para reactivar el acceso.
+
+### Activo No Encontrado (404 / 500): 
+Captura la excepción de red del httpClient y despliega un banner de reintento sin romper la aplicación.
