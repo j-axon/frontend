@@ -1,25 +1,33 @@
-J-AXON Frontend
-Frontend web para J-AXON: sistema de Help Desk, inventario inteligente, escaneo QR, paneles por rol, tickets, activos, notificaciones en tiempo real e integración con resultados de IA.
+# J-AXON Frontend
 
-Stack base
-Next.js
-React
-TypeScript
-Tailwind CSS
-ESLint
-Vitest
-Playwright
-MSW
-Estructura principal
+Frontend web para el ecosistema **J-AXON**: un sistema avanzado de Help Desk con inventario inteligente, escaneo de códigos QR, paneles adaptados por rol, gestión de tickets, control de activos, notificaciones en tiempo real e integración directa con resultados de IA.
+
+---
+
+## Stack Tecnológico Base
+
+| Categoría | Tecnologías Utilizadas |
+| :--- | :--- |
+| **Core** | Next.js (App Router), React, TypeScript |
+| **Estilos** | Tailwind CSS |
+| **Calidad de Código** | ESLint |
+| **Pruebas (Testing)** | Vitest, Playwright, MSW (Mock Service Worker) |
+
+---
+
+## Estructura Principal del Proyecto
+
+```text
 src/
-├── app/                  # Rutas Next.js App Router
-├── components/           # Componentes reutilizables
-├── features/             # Módulos funcionales por dominio
-├── hooks/                # Hooks reutilizables
-├── lib/                  # Clientes, utilidades e integraciones
-├── constants/            # Rutas, roles y valores constantes
-├── types/                # Tipos TypeScript compartidos
-└── middleware.ts         # Protección de rutas / RBAC
+├── app/                  # Rutas y páginas de Next.js (App Router)
+├── components/           # Componentes UI globales y reutilizables
+├── features/             # Módulos funcionales organizados por dominio
+├── hooks/                # Custom hooks globales compartidos
+├── lib/                  # Clientes de API (httpClient), utilidades e integraciones
+├── constants/            # Rutas de navegación, roles y valores fijos
+├── types/                # Definiciones de tipos TypeScript compartidos
+└── middleware.ts         # Protección de rutas y control de acceso (RBAC)
+```
 Primeros pasos
 npm install
 cp .env.example .env.local
