@@ -4,7 +4,7 @@ import { AuthProvider } from "@/features/auth/context/AuthProvider";
 
 export const metadata: Metadata = {
   title: "J-AXON",
-  description: "Help Desk e inventario inteligente"
+  description: "Help Desk, inventario inteligente, escaneo QR y diagnósticos asistidos por IA"
 };
 
 export default function RootLayout({

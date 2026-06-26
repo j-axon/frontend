@@ -27,7 +27,7 @@ export const LoginForm: React.FC = () => {
       await loginUser(data);
       router.push("/dashboard");
     } catch (error: any) {
-      setServerError("Invalid credentials or server connection error.");
+      setServerError("Credenciales inválidas o error de conexión con el servidor.");
     }
   };
 
@@ -38,7 +38,7 @@ export const LoginForm: React.FC = () => {
           J-AXON
         </h2>
         <p className="text-xs text-gray-500 mt-2">
-          Help Desk, smart inventory and diagnostics.
+          Help Desk, inventario inteligente y diagnósticos.
         </p>
       </div>
       
@@ -51,7 +51,7 @@ export const LoginForm: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Email Address
+            Correo Electrónico
           </label>
           <input
             type="email"
@@ -68,7 +68,7 @@ export const LoginForm: React.FC = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Password
+            Contraseña
           </label>
           <input
             type="password"
@@ -88,7 +88,7 @@ export const LoginForm: React.FC = () => {
           disabled={isLoading}
           className="w-full mt-2 py-2.5 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 font-medium text-sm rounded-lg transition-all active:scale-[0.99] disabled:opacity-50 shadow-sm"
         >
-          {isLoading ? "Signing in..." : "Sign in"}
+          {isLoading ? "Iniciando sesión..." : "Iniciar sesión"}
         </button>
       </form>
     </div>

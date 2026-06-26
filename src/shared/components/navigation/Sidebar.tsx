@@ -13,11 +13,11 @@ interface NavItem {
 }
 
 const ALL_NAV_ITEMS: NavItem[] = [
-  { label: "Dashboard", path: PROTECTED_ROUTES.DASHBOARD },
+  { label: "Panel", path: PROTECTED_ROUTES.DASHBOARD },
   { label: "Tickets", path: PROTECTED_ROUTES.TICKETS },
-  { label: "Asset Management", path: PROTECTED_ROUTES.ASSETS },
-  { label: "Report & AUDIT", path: PROTECTED_ROUTES.REPORTS },
-  { label: "User Management", path: PROTECTED_ROUTES.USERS },
+  { label: "Gestión de Activos", path: PROTECTED_ROUTES.ASSETS },
+  { label: "Reportes y Auditoría", path: PROTECTED_ROUTES.REPORTS },
+  { label: "Gestión de Usuarios", path: PROTECTED_ROUTES.USERS },
 ];
 
 export const Sidebar: React.FC = () => {
@@ -72,7 +72,7 @@ export const Sidebar: React.FC = () => {
           onClick={logoutUser}
           className="w-full flex items-center justify-center px-3 py-2 text-xs font-semibold text-red-600 bg-white border border-gray-200 rounded-lg hover:bg-red-50 hover:border-red-200 transition-colors"
         >
-          Sign Out
+          Cerrar Sesión
         </button>
       </div>
     </aside>

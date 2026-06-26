@@ -5,13 +5,13 @@ export default function HomePage() {
     <main className="flex min-h-screen flex-col items-center justify-center gap-6 p-8 text-center">
       <h1 className="text-4xl font-bold">J-AXON</h1>
       <p className="max-w-xl text-lg">
-        Help Desk, smart inventory, QR scanning and AI-assisted diagnostics.
+        Help Desk, inventario inteligente, escaneo QR y diagnósticos asistidos por IA.
       </p>
       <Link
         className="rounded-md border px-4 py-2"
         href="/login"
       >
-        Sing in
+        Iniciar sesión
       </Link>
     </main>
   );

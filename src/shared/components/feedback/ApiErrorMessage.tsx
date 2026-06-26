@@ -9,17 +9,17 @@ interface ApiErrorMessageProps{
 export const ApiErrorMessage: React.FC<ApiErrorMessageProps> = ({error}) => {
     if (!(error instanceof ApiError)) return null;
 
-    let title = "Unexpected error";
-    let description = error.message || "Please try again later.";
+    let title = "Error inesperado";
+    let description = error.message || "Por favor, intente nuevamente más tarde.";
 
     if(error.status === HttpStatus.FORBIDDEN) {
-        title= "Access denied";
-        description= "You do not have the necessary permissions to view this information."
+        title= "Acceso denegado";
+        description= "No tienes los permisos necesarios para ver esta información."
     } else if (error.status === HttpStatus.NOT_FOUND){
-        title="Resource not found";
-        description= "The element required not exist or it was moved";
+        title="Recurso no encontrado";
+        description= "El elemento solicitado no existe o fue movido";
     } else if (error.status === HttpStatus.BAD_REQUEST){
-        title = "Incorrect application"
+        title = "Solicitud incorrecta"
     }
     return(
         <div className="p-4 mb-4 rounded-lg bg-red-50 border border-red-200 text-red-800 role = 'alert'">

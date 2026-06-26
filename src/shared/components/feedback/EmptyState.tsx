@@ -6,8 +6,8 @@ interface EmptyStateProps{
 }
 
 export const EmptyState : React.FC<EmptyStateProps> = ({
-    title = "there isn't results" ,
-    message= "No records were found in this module"
+    title = "No hay resultados" ,
+    message= "No se encontraron registros en este módulo"
 }) =>{
     return (
         <div className="flex flex-col items-center justify-center p-12 text-center bg-gray-50 rounded-xl border border-dashed border-gray-200">

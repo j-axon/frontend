@@ -6,7 +6,7 @@ export default function DashboardLayout({
   return (
     <main className="min-h-screen">
       <section className="border-b p-4">
-        <strong>J-AXON Panel</strong>
+        <strong>Panel J-AXON</strong>
       </section>
       <section className="p-6">{children}</section>
     </main>

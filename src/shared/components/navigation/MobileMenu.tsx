@@ -14,11 +14,11 @@ interface NavItem {
 }
 
 const ALL_NAV_ITEMS: NavItem[] = [
-  { label: "Dashboard", path: PROTECTED_ROUTES.DASHBOARD },
+  { label: "Panel", path: PROTECTED_ROUTES.DASHBOARD },
   { label: "Tickets", path: PROTECTED_ROUTES.TICKETS },
-  { label: "Asset Management", path: PROTECTED_ROUTES.ASSETS },
-  { label: "Report & AUDIT", path: PROTECTED_ROUTES.REPORTS },
-  { label: "User Management", path: PROTECTED_ROUTES.USERS },
+  { label: "Gestión de Activos", path: PROTECTED_ROUTES.ASSETS },
+  { label: "Reportes y Auditoría", path: PROTECTED_ROUTES.REPORTS },
+  { label: "Gestión de Usuarios", path: PROTECTED_ROUTES.USERS },
 ];
 
 export const MobileMenu: React.FC = () => {
@@ -40,7 +40,7 @@ export const MobileMenu: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
-        aria-label="Toggle menu"
+        aria-label="Abrir menú"
       >
         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           {isOpen ? (
@@ -84,7 +84,7 @@ export const MobileMenu: React.FC = () => {
               }}
               className="w-full py-2.5 text-center text-sm font-semibold text-red-600 bg-red-50 rounded-lg"
             >
-              Sign Out
+              Cerrar Sesión
             </button>
           </div>
         </div>

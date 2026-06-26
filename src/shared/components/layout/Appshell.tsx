@@ -22,7 +22,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
         
         <header className="hidden md:flex h-16 items-center justify-end border-b border-gray-200 bg-white px-8 sticky top-0 z-10">
           <div className="flex items-center gap-4 text-sm font-medium text-gray-600">
-            <span className="font-mono text-xs text-gray-400">J-AXON ENGINE</span>
+            <span className="font-mono text-xs text-gray-400">MOTOR J-AXON</span>
             <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
           </div>
         </header>
