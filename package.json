@@ -13,9 +13,12 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.0",
+    "@tailwindcss/postcss": "^4.3.1",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-hook-form": "^7.51.0",
     "zod": "latest"
   },
   "devDependencies": {
