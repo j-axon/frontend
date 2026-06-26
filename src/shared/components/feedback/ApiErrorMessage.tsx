@@ -22,9 +22,9 @@ export const ApiErrorMessage: React.FC<ApiErrorMessageProps> = ({error}) => {
         title = "Solicitud incorrecta"
     }
     return(
-        <div className="p-4 mb-4 rounded-lg bg-red-50 border border-red-200 text-red-800 role = 'alert'">
+        <div className="p-3 mb-5 rounded-lg bg-red-50 border border-red-200 text-red-600" role="alert">
             <h4 className="font-semibold text-sm">{title}</h4>
-            <p className="text-xs mt-1 text-red-700">{description}</p>
+            <p className="text-xs mt-1 text-red-600">{description}</p>
         </div>
     );
 };
