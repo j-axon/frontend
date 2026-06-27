@@ -10,7 +10,8 @@ export function AssetForm() {
   const [formData, setFormData] = useState({
     code: "",
     name: "",
-    description: ""
+    description: "",
+    assignedToUserId: ""
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,7 +28,7 @@ export function AssetForm() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -83,6 +84,25 @@ export function AssetForm() {
               className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
               placeholder="Descripción detallada del activo..."
             />
+          </div>
+
+          <div>
+            <label htmlFor="assignedToUserId" className="block text-sm font-medium text-slate-900 mb-2">
+              Asignar a usuario
+            </label>
+            <select
+              id="assignedToUserId"
+              name="assignedToUserId"
+              value={formData.assignedToUserId}
+              onChange={handleChange}
+              className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+            >
+              <option value="">Sin asignar</option>
+              <option value="user-1">Juan Perez</option>
+              <option value="user-2">Maria Garcia</option>
+              <option value="user-3">Carlos Lopez</option>
+            </select>
+            <p className="mt-1 text-xs text-slate-500">Opcional: asigna el activo a un usuario al crearlo</p>
           </div>
         </div>
 

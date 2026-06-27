@@ -39,6 +39,7 @@ async function createAsset(data: {
   code: string;
   name: string;
   description?: string;
+  assignedToUserId?: string;
 }): Promise<AdminAsset> {
   return httpClient("/v1/assets", {
     method: "POST",
