@@ -1,20 +1,12 @@
-import { TicketFromQrForm } from "@/features/tickets/components/TicketFromQrForm";
-import { getAssetByQrToken } from "@/features/assets/services/asset.service";
+import { redirect } from "next/navigation";
 
-type ScanQrPageProps = {
+type QrDeepLinkPageProps = {
   params: Promise<{
     qrToken: string;
   }>;
 };
 
-export default async function ScanQrPage({ params }: ScanQrPageProps) {
+export default async function QrDeepLinkPage({ params }: QrDeepLinkPageProps) {
   const { qrToken } = await params;
-  const asset = await getAssetByQrToken(qrToken);
-
-  return (
-    <div className="mx-auto max-w-2xl">
-      <h1 className="mb-6 text-3xl font-bold">Crear Ticket desde QR</h1>
-      <TicketFromQrForm asset={asset} />
-    </div>
-  );
+  redirect(`/tickets/new?assetId=${encodeURIComponent(qrToken)}`);
 }

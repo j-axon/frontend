@@ -1,4 +1,5 @@
 import { env } from "@/lib/env";
+import { HttpError } from "@/lib/api/http-error";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
@@ -23,7 +24,7 @@ export async function httpClient<TResponse>(
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error ${response.status}`);
+    throw new HttpError(response.status, `HTTP error ${response.status}`);
   }
 
   return response.json() as Promise<TResponse>;
