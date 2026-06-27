@@ -5,7 +5,10 @@ const NAV_ITEMS = [
   { label: "Dashboard", href: ROUTES.dashboard },
   { label: "Tickets", href: ROUTES.tickets },
   { label: "Mis tickets", href: ROUTES.myTickets },
+  { label: "Técnico", href: ROUTES.technicianTickets },
   { label: "Activos", href: ROUTES.assets },
+  { label: "Admin Activos", href: ROUTES.adminAssets },
+  { label: "Huérfanos", href: ROUTES.adminAssetsOrphans },
   { label: "Reportes", href: ROUTES.reports }
 ];
 
