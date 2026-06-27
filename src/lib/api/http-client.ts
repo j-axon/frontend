@@ -8,6 +8,16 @@ type RequestOptions = {
   headers?: HeadersInit;
 };
 
+export class HttpClientError extends Error {
+  status: number;
+
+  constructor(status: number, message?: string) {
+    super(message ?? `HTTP error ${status}`);
+    this.name = "HttpClientError";
+    this.status = status;
+  }
+}
+
 export async function httpClient<TResponse>(
   path: string,
   options: RequestOptions = {}
@@ -23,7 +33,7 @@ export async function httpClient<TResponse>(
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error ${response.status}`);
+    throw new HttpClientError(response.status);
   }
 
   return response.json() as Promise<TResponse>;
