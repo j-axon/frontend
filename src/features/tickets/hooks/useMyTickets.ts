@@ -17,13 +17,9 @@ export type MyTicket = {
   };
 };
 
-type MyTicketsApiResponse = {
-  items: MyTicket[];
-};
-
+// Backend returns a bare array (not a paginated envelope).
 async function fetchMyTickets(): Promise<MyTicket[]> {
-  const response = await httpClient<MyTicketsApiResponse>("/v1/tickets/me");
-  return response.items;
+  return httpClient<MyTicket[]>("/v1/tickets/my");
 }
 
 export function useMyTickets() {

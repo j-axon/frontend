@@ -55,10 +55,7 @@ export default function TicketsListPage() {
 
   const { data, isLoading, isError, refetch } = useQuery({
     queryKey: ["tickets", filter],
-    queryFn: () => {
-      const qs = filter === "TODOS" ? "" : `?status=${filter}`;
-      return httpClient<PagedResponse<TicketSummary>>(`/v1/tickets${qs}`);
-    },
+    queryFn: () => httpClient<TicketSummary[]>("/v1/tickets/my"),
     staleTime: 20_000,
   });
 
@@ -113,8 +110,14 @@ export default function TicketsListPage() {
             >
               Reintentar
             </button>
+            <Link
+              href={ROUTES.technicianTickets}
+              className="w-fit rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm hover:bg-slate-50"
+            >
+              Ir a la cola del técnico
+            </Link>
           </div>
-        ) : !data || data.items.length === 0 ? (
+        ) : !data || data.length === 0 ? (
           <div className="grid gap-2 p-8 text-center">
             <p className="text-sm text-slate-600">No hay tickets que mostrar.</p>
             <Link
@@ -139,7 +142,7 @@ export default function TicketsListPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
-                {data.items.map((t) => (
+                {data.map((t) => (
                   <tr key={t.id} className="hover:bg-slate-50">
                     <td className="p-3 font-mono text-slate-700">{t.code}</td>
                     <td className="p-3 font-medium text-slate-900">{t.title}</td>

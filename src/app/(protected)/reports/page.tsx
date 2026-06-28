@@ -15,9 +15,7 @@ type AuditLog = {
   timestamp: string;
 };
 
-type AuditResponse = {
-  items: AuditLog[];
-};
+// Backend returns a bare array (not a paginated envelope).
 
 const REPORT_CARDS = [
   {
@@ -49,7 +47,7 @@ const REPORT_CARDS = [
 export default function ReportsPage() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["audit-logs"],
-    queryFn: () => httpClient<AuditResponse>("/v1/audit/logs"),
+    queryFn: () => httpClient<AuditLog[]>("/v1/audit/logs"),
     staleTime: 20_000,
   });
 
@@ -111,7 +109,7 @@ export default function ReportsPage() {
             <div className="p-6 text-sm text-rose-700">
               No se pudo cargar el log de auditoría.
             </div>
-          ) : !data || data.items.length === 0 ? (
+          ) : !data || data.length === 0 ? (
             <div className="p-8 text-center text-sm text-slate-600">
               No hay eventos registrados.
             </div>
@@ -130,7 +128,7 @@ export default function ReportsPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200">
-                  {data.items.map((log) => (
+                  {data.map((log) => (
                     <tr key={log.id} className="hover:bg-slate-50">
                       <td className="p-3 text-xs text-slate-500">
                         {new Date(log.timestamp).toLocaleString()}

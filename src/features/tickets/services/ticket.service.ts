@@ -33,23 +33,21 @@ export type TechnicianTicket = {
   };
 };
 
-type PaginatedResponse<T> = {
-  items: T[];
-  total: number;
-  page: number;
-  size: number;
-};
+// NOTE: Backend does NOT expose /v1/tickets?assignee=me (the technician
+// queue). It only exposes /v1/tickets/my (the current user's tickets).
+// Until a real /v1/tickets/admin endpoint exists, the technician queue
+// view will fetch the current user's tickets as a best approximation.
 
 export const ticketService = {
   createTicket,
 
   async fetchTechnicianTickets(): Promise<TechnicianTicket[]> {
-    const response = await httpClient<PaginatedResponse<TechnicianTicket>>(
-      "/v1/tickets?assignee=me&status=OPEN,IN_PROGRESS"
-    );
-    return response.items;
+    return httpClient<TechnicianTicket[]>("/v1/tickets/my");
   },
 
+  // NOTE: Backend does NOT expose PATCH /v1/tickets/{id}/status.
+  // Keeping the helper so the UI compiles, but it will throw at runtime
+  // until the endpoint is added.
   async updateTicketStatus(
     ticketId: string,
     newStatus: TicketStatus
