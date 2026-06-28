@@ -1,4 +1,5 @@
 import { env } from "@/lib/env";
+import { HttpError } from "@/lib/api/http-error";
 
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
@@ -7,6 +8,16 @@ type RequestOptions = {
   body?: unknown;
   headers?: HeadersInit;
 };
+
+export class HttpClientError extends Error {
+  status: number;
+
+  constructor(status: number, message?: string) {
+    super(message ?? `HTTP error ${status}`);
+    this.name = "HttpClientError";
+    this.status = status;
+  }
+}
 
 export async function httpClient<TResponse>(
   path: string,
@@ -23,7 +34,7 @@ export async function httpClient<TResponse>(
   });
 
   if (!response.ok) {
-    throw new Error(`HTTP error ${response.status}`);
+    throw new HttpError(response.status, `HTTP error ${response.status}`);
   }
 
   return response.json() as Promise<TResponse>;
