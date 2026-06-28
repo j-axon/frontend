@@ -24,15 +24,9 @@ Frontend web para J-AXON: Help Desk, inventario inteligente, escaneo QR, paneles
 ## Instalación
 
 ```bash
-# Clonar repositorio
-git clone <repo-url>
-cd frontend
-
-# Instalar dependencias
-npm install
-
-# Copiar variables de entorno
+pnpm install
 cp .env.example .env.local
+pnpm run dev
 ```
 
 ## Variables de Entorno
@@ -107,55 +101,11 @@ src/
 ### Tests Unitarios
 
 ```bash
-# Ejecutar todos
-npm run test
-
-# Con coverage
-npm run test:coverage
-
-# Modo watch
-npm run test -- --watch
-```
-
-### Tests E2E
-
-```bash
-# Ejecutar todos
-npm run test:e2e
-
-# Solo Chrome
-npx playwright test --project=chromium
-
-# Ver reporte
-npx playwright show-report
-```
-
-## Documentación Adicional
-
-- [Contribución](./CONTRIBUTING.md)
-- [Convenciones](./docs/frontend/conventions.md)
-- [Definition of Done](./docs/frontend/definition-of-done.md)
-- [Testing E2E](./docs/frontend/testing-e2e.md)
-- [Panel Auditor](./docs/frontend/auditor-panel.md)
-
-## Scripts npm
-
-```bash
-# Desarrollo
-npm run dev              # Dev server en puerto 3000
-
-# Build
-npm run build           # Build de producción
-npm run start          # Iniciar producción
-
-# Quality
-npm run lint           # ESLint
-npm run lint:fix       # ESLint fix
-
-# Testing
-npm run test            # Unit tests (Vitest)
-npm run test:coverage # Coverage
-npm run test:e2e       # E2E (Playwright)
+pnpm run dev
+pnpm run build
+pnpm run lint
+pnpm run test
+pnpm run test:e2e
 ```
 
 ## Licencia

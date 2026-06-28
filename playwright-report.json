@@ -1,0 +1,1569 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\stive\\Downloads\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--list"
+    ],
+    "configFile": "C:\\Users\\stive\\Downloads\\frontend\\playwright.config.ts",
+    "rootDir": "C:/Users/stive/Downloads/frontend/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/stive/Downloads/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/stive/Downloads/frontend/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/stive/Downloads/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "C:/Users/stive/Downloads/frontend/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/stive/Downloads/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "C:/Users/stive/Downloads/frontend/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFile": "playwright-report.html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.1",
+    "workers": 8,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": true,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "auditor\\readonly-panel.spec.ts",
+      "file": "auditor/readonly-panel.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Auditor - Read-only Panel",
+          "file": "auditor/readonly-panel.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-FE-AUDIT-001: Auditor puede acceder a audit logs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-f83e9b77b82e98be48dd",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-002: Auditor puede acceder a reportes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-8ccc66c095779bcdd450",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-003: Audit logs no tiene botones de edición",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-0452aa01a86e4bcaaa74",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-004: Reports no tiene botones de edición",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-7b88c01bbf85f6e32f62",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-005: Audit logs tiene filtros",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-4ed32d8f7850d309cfc1",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-006: Auditor puede navegar entre páginas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-b4d2ba1ca99fe7e7f4aa",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 61,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-007: Reports muestra KPIs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-0498d1c8064acf468f6e",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-001: Auditor puede acceder a audit logs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-c9de331793e048ac3a34",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-002: Auditor puede acceder a reportes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-b836edece12ca1aca954",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-003: Audit logs no tiene botones de edición",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-ba73fcb6feb2669fc3ee",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-004: Reports no tiene botones de edición",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-16396f8c433f1ff4ccb1",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-005: Audit logs tiene filtros",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-7ed18f8067a2d33c6b34",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-006: Auditor puede navegar entre páginas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-e8cd4715a346ee594101",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 61,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-007: Reports muestra KPIs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-5c676f5e0322f923cc94",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-001: Auditor puede acceder a audit logs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-7c47282254753a14d145",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-002: Auditor puede acceder a reportes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-0d086fae633dbace9cfa",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-003: Audit logs no tiene botones de edición",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-35834ee386c7c6ce7d12",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-004: Reports no tiene botones de edición",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-3158035a57c0b8ccb2ac",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-005: Audit logs tiene filtros",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-a7f02993775e2b7f8b8c",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-006: Auditor puede navegar entre páginas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-36888e0c84c934387b07",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 61,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUDIT-007: Reports muestra KPIs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "6893b2eb1d1421ca0489-3145f8d07b546358ec15",
+              "file": "auditor/readonly-panel.spec.ts",
+              "line": 71,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "auth\\login.spec.ts",
+      "file": "auth/login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Authentication - Login",
+          "file": "auth/login.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-FE-AUTH-001: Login exitoso con credenciales válidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-8f3cc2fbb3f4b0863d2c",
+              "file": "auth/login.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-002: Login falla con credenciales inválidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-ab7279d12eed40d83367",
+              "file": "auth/login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-003: Login muestra errores de validación",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-27d3c657f78010e9d313",
+              "file": "auth/login.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-004: Técnico puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-d216d7a6f5ca871c289c",
+              "file": "auth/login.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-005: Auditor puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-2007b3ed731f38d12936",
+              "file": "auth/login.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-006: Admin puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-1c9d45f520eb33431aae",
+              "file": "auth/login.spec.ts",
+              "line": 58,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-001: Login exitoso con credenciales válidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-33467b8b442c0fcd6321",
+              "file": "auth/login.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-002: Login falla con credenciales inválidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-e79ba4c8fc0b7e172b2b",
+              "file": "auth/login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-003: Login muestra errores de validación",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-74355a8c208272eadde0",
+              "file": "auth/login.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-004: Técnico puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-8a69e26805353157393c",
+              "file": "auth/login.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-005: Auditor puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-e0eb79ace0b3de523720",
+              "file": "auth/login.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-006: Admin puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-6938beeabc0da30d5829",
+              "file": "auth/login.spec.ts",
+              "line": 58,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-001: Login exitoso con credenciales válidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-a05a0aee555711faabd6",
+              "file": "auth/login.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-002: Login falla con credenciales inválidas",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-b6cb96038dd1771d715e",
+              "file": "auth/login.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-003: Login muestra errores de validación",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-574bb9602b3f2731f9d4",
+              "file": "auth/login.spec.ts",
+              "line": 29,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-004: Técnico puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-27ffbf359c48f124d777",
+              "file": "auth/login.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-005: Auditor puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-d4faa5252baebf9a5c9e",
+              "file": "auth/login.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-AUTH-006: Admin puede iniciar sesión",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "231ca1f0f4db3e4958c3-41d8f5855bf5aa0e195c",
+              "file": "auth/login.spec.ts",
+              "line": 58,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "home.spec.ts",
+      "file": "home.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "home page loads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-99762a4e80bc273df7c2",
+          "file": "home.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "home page loads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-95d1650896538b932c11",
+          "file": "home.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "home page loads",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "d318381359a9b96acb1e-0c5236d308032b2ddff1",
+          "file": "home.spec.ts",
+          "line": 3,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "technician\\ticket-diagnosis.spec.ts",
+      "file": "technician/ticket-diagnosis.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Technician - Ticket Diagnosis",
+          "file": "technician/ticket-diagnosis.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-FE-TECH-001: Técnico puede acceder al panel de tickets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-dda710f5edaa8ad74978",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-002: Técnico puede ver detalle de ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-5abfa3bb9f7f6bef27fe",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-003: Técnico puede actualizar estado de ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-e72a8bca10c731a61820",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-004: Técnico puede agregar diagnóstico IA",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-3f35b5cc2e16c6c20c76",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-005: Técnico puede ver historial del ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-9019a2baac46299d3876",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-001: Técnico puede acceder al panel de tickets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-44ddb2042b6953c05fb1",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-002: Técnico puede ver detalle de ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-84fa0a93b9efdf4c3039",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-003: Técnico puede actualizar estado de ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-8005f834116523b027d0",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-004: Técnico puede agregar diagnóstico IA",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-3c52b58f76c90d7e215a",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-005: Técnico puede ver historial del ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-291d96afbe3b56666f67",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-001: Técnico puede acceder al panel de tickets",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-12095c6fea6bf3796a39",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-002: Técnico puede ver detalle de ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-cf109ec1ebb25f2cb1c8",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-003: Técnico puede actualizar estado de ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-d56b10007d686ba16c38",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-004: Técnico puede agregar diagnóstico IA",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-d0c50a05501992273134",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TECH-005: Técnico puede ver historial del ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "496ec636c9215a3c7827-862048bd14dc7f0b0c85",
+              "file": "technician/ticket-diagnosis.spec.ts",
+              "line": 45,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tickets\\create-ticket-from-qr.spec.ts",
+      "file": "tickets/create-ticket-from-qr.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "QR Code - Ticket Creation",
+          "file": "tickets/create-ticket-from-qr.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "E2E-FE-TICKET-001: Usuario puede crear ticket escaneando QR",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-209be93f3fa0d312cf68",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-002: QR inválido muestra error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-1b6c19c152fbb4e6a938",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-003: Usuario no autenticado no puede crear ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-d4a7ac5f3267f11ffcea",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-004: Técnico puede ver tickets asignados",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-85e1529dc87bcf560b5c",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-001: Usuario puede crear ticket escaneando QR",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-a8e12ff517290db428ea",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-002: QR inválido muestra error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-fd74a760112efed4acd0",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-003: Usuario no autenticado no puede crear ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-194b0a5b52059c6afaa6",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-004: Técnico puede ver tickets asignados",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-ba35b70b5c3d695458ef",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-001: Usuario puede crear ticket escaneando QR",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-ce1b399ec7b01f942d8a",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-002: QR inválido muestra error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-2008c359ab1d3abb9927",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-003: Usuario no autenticado no puede crear ticket",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-d089936da0e2f90ad557",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "E2E-FE-TICKET-004: Técnico puede ver tickets asignados",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "142c58030d4cbe2a337a-f4f798d0b4c5bf4b9d1d",
+              "file": "tickets/create-ticket-from-qr.spec.ts",
+              "line": 43,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-06-28T13:37:03.463Z",
+    "duration": 262.5,
+    "expected": 0,
+    "skipped": 69,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
