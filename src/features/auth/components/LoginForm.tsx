@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type LoginFormData } from "../schemas/login.schema";
 import { useAuth } from "../hooks/useAuth";
 import { useRouter } from "next/navigation";
+import { ROUTES } from "@/constants/routes";
 
 export const LoginForm: React.FC = () => {
   const { loginUser, isLoading } = useAuth();
@@ -25,7 +26,7 @@ export const LoginForm: React.FC = () => {
     setServerError(null);
     try {
       await loginUser(data);
-      router.push("/dashboard");
+      router.push(ROUTES.dashboard);
     } catch (error: any) {
       setServerError("Credenciales inválidas o error de conexión con el servidor.");
     }

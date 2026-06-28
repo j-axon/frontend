@@ -5,7 +5,13 @@ export const ROUTES = {
   tickets: "/tickets",
   ticketsScan: "/tickets/scan",
   ticketsNew: "/tickets/new",
+  myTickets: "/my-tickets",
+  technicianTickets: "/technician/tickets",
   assets: "/assets",
   admin: "/admin",
+  adminAssets: "/admin/assets",
+  adminAssetsOrphans: "/admin/assets/orphans",
+  adminAssetsNew: "/admin/assets/new",
+  network: "/network",
   reports: "/reports"
 } as const;
