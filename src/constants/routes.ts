@@ -1,9 +1,1 @@
-export const ROUTES = {
-  home: "/",
-  login: "/login",
-  dashboard: "/dashboard",
-  tickets: "/tickets",
-  assets: "/assets",
-  admin: "/admin",
-  reports: "/reports"
-} as const;
+export const ROUTES = { home: "/", login: "/login", dashboard: "/dashboard", tickets: "/tickets", assets: "/assets", admin: "/admin", reports: "/reports", auditor: { root: "/auditor", auditLogs: "/auditor/audit-logs", reports: "/auditor/reports" } } as const; 
