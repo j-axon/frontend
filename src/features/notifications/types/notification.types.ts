@@ -1,44 +1,23 @@
-export type NotificationType = 
-  | "TICKET_CREATED"
-  | "TICKET_UPDATED"
-  | "TICKET_ASSIGNED"
-  | "TICKET_RESOLVED"
-  | "TICKET_CLOSED"
-  | "DIAGNOSIS_COMPLETE"
-  | "SYSTEM_ALERT";
+export type NotificationType = "TICKET_UPDATED" | "TICKET_ASSIGNED" | "AI_DIAGNOSIS_READY" | "TICKET_CLOSED";
 
-export type NotificationPriority = "low" | "medium" | "high";
-
-export type AppNotification = {
+export type Notification = {
   id: string;
   type: NotificationType;
   title: string;
   message: string;
-  priority: NotificationPriority;
   ticketId?: string;
+  ticketCode?: string;
+  createdAt: string;
   read: boolean;
-  timestamp: string;
-  metadata?: Record<string, unknown>;
 };
 
-export type NotificationPayload = {
+export type StompMessage = {
   type: NotificationType;
-  title: string;
-  message: string;
-  priority?: NotificationPriority;
-  ticketId?: string;
-  metadata?: Record<string, unknown>;
-};
-
-export type StompConnectionConfig = {
-  brokerUrl: string;
-  reconnectInterval?: number;
-  maxReconnectAttempts?: number;
-  heartbeatIncoming?: number;
-  heartbeatOutgoing?: number;
-};
-
-export type NotificationSubscription = {
-  destination: string;
-  callback: (notification: NotificationPayload) => void;
+  payload: {
+    ticketId?: string;
+    ticketCode?: string;
+    userId?: string;
+    message?: string;
+  };
+  timestamp: string;
 };
