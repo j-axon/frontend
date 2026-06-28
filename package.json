@@ -13,6 +13,8 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@stomp/stompjs": "^7.3.0",
+    "@tanstack/react-query": "^5.101.2",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
