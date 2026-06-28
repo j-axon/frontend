@@ -1,15 +1,18 @@
 import { z } from "zod";
-import { TICKET_CATEGORIES, TICKET_PRIORITIES } from "@/features/tickets/types/ticket.types";
+import {
+  TICKET_CATEGORIES,
+  TICKET_PRIORITIES,
+} from "@/features/tickets/types/ticket.types";
 
 export const createTicketSchema = z.object({
-  descripcion: z
+  description: z
     .string()
-    .trim()
-    .min(10, "La descripcion debe tener al menos 10 caracteres"),
-  categoria: z.enum(TICKET_CATEGORIES, {
-    error: "La categoria es obligatoria"
+    .min(10, "La descripción debe tener al menos 10 caracteres"),
+  category: z.enum(TICKET_CATEGORIES, {
+    message: "La categoría es obligatoria",
   }),
-  prioridad: z.enum(TICKET_PRIORITIES)
+  priority: z.enum(TICKET_PRIORITIES).optional(),
+  assetUuid: z.string().min(1, "El UUID del activo es obligatorio"),
 });
 
-export type CreateTicketFormValues = z.infer<typeof createTicketSchema>;
+export type CreateTicketInput = z.infer<typeof createTicketSchema>;

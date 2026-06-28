@@ -1,22 +1,23 @@
-export const TICKET_CATEGORIES = ["HARDWARE", "SOFTWARE", "NETWORK", "ACCESS", "OTHER"] as const;
+export const TICKET_CATEGORIES = [
+  "Mantenimiento",
+  "Soporte Técnico",
+  "Infraestructura",
+  "Otros",
+] as const;
 
-export const TICKET_PRIORITIES = ["LOW", "MEDIUM", "HIGH", "CRITICAL"] as const;
+export const TICKET_PRIORITIES = ["Baja", "Media", "Alta"] as const;
 
 export type TicketCategory = (typeof TICKET_CATEGORIES)[number];
-
 export type TicketPriority = (typeof TICKET_PRIORITIES)[number];
 
-export type CreateTicketRequest = {
+export interface CreateTicketRequest {
   assetUuid: string;
-  descripcion: string;
-  categoria: TicketCategory;
-  prioridad: TicketPriority;
-  adjuntos?: string[];
-};
+  description: string;
+  category: TicketCategory;
+  priority?: TicketPriority;
+}
 
-export type CreateTicketResponse = {
-  uuid: string;
-  codigo: string;
-  estado: string;
-  createdAt: string;
-};
+export interface CreateTicketResponse {
+  id: string;
+  message: string;
+}

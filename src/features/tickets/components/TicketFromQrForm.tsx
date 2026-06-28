@@ -1,154 +1,178 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import type { AssetQrPrefillData } from "@/features/assets/types/asset-qr.types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { AssetQrResponse } from "@/features/assets/types/asset-qr.types";
+import { isForbiddenError } from "@/lib/api/http-error";
 import {
   createTicketSchema,
-  type CreateTicketFormValues
-} from "@/features/tickets/schemas/create-ticket.schema";
-import {
-  createTicketFromQr,
-  TicketCreateForbiddenError
-} from "@/features/tickets/services/ticket.service";
+  type CreateTicketInput,
+} from "../schemas/create-ticket.schema";
+import { AssetPrefillCard } from "./AssetPrefillCard";
+import { createTicket } from "../services/ticket.service";
 import {
   TICKET_CATEGORIES,
   TICKET_PRIORITIES,
-  type CreateTicketResponse
-} from "@/features/tickets/types/ticket.types";
-import { AssetPrefillCard } from "@/features/tickets/components/AssetPrefillCard";
+} from "../types/ticket.types";
 
-type TicketFromQrFormProps = {
-  asset: AssetQrPrefillData;
-};
+interface TicketFromQrFormProps {
+  asset: AssetQrResponse;
+}
 
 export function TicketFromQrForm({ asset }: TicketFromQrFormProps) {
-  const [result, setResult] = useState<CreateTicketResponse | null>(null);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
-    reset
-  } = useForm<CreateTicketFormValues>({
+    formState: { errors },
+  } = useForm<CreateTicketInput>({
     resolver: zodResolver(createTicketSchema),
     defaultValues: {
-      descripcion: "",
-      categoria: undefined,
-      prioridad: "MEDIUM"
-    }
+      assetUuid: asset.id,
+    },
   });
 
-  const onSubmit = handleSubmit(async (values) => {
+  const onSubmit = async (data: CreateTicketInput) => {
+    setIsSubmitting(true);
     setSubmitError(null);
-    setResult(null);
+    setSubmitSuccess(false);
 
     try {
-      const response = await createTicketFromQr({
-        assetUuid: asset.assetUuid,
-        descripcion: values.descripcion,
-        categoria: values.categoria,
-        prioridad: values.prioridad
-      });
-
-      setResult(response);
-      reset({
-        descripcion: "",
-        categoria: undefined,
-        prioridad: "MEDIUM"
-      });
+      await createTicket(data);
+      setSubmitSuccess(true);
     } catch (error) {
-      if (error instanceof TicketCreateForbiddenError) {
-        setSubmitError("No autorizado para reportar sobre este activo.");
-        return;
+      if (isForbiddenError(error)) {
+        setSubmitError(
+          "No tienes permisos para reportar una falla en este activo. Por favor, contacta al administrador."
+        );
+      } else {
+        setSubmitError(
+          "Error al crear el ticket. Por favor, intenta nuevamente."
+        );
       }
-
-      setSubmitError("No se pudo crear el ticket. Intenta nuevamente.");
+    } finally {
+      setIsSubmitting(false);
     }
-  });
+  };
+
+  if (submitSuccess) {
+    return (
+      <div
+        className="rounded-lg border border-green-200 bg-green-50 p-6 text-center"
+        data-testid="ticket-success-message"
+      >
+        <div className="mb-4 text-4xl">✓</div>
+        <h3 className="mb-2 text-xl font-semibold text-green-800">
+          ¡Ticket creado con éxito!
+        </h3>
+        <p className="text-green-700">
+          El equipo de soporte revisará tu reporte pronto.
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <section className="mx-auto flex w-full max-w-3xl flex-col gap-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-semibold text-slate-900">Reportar falla del activo</h1>
-        <p className="text-sm text-slate-600">
-          Los datos tecnicos del activo son de solo lectura y se cargan automaticamente desde el QR.
-        </p>
-      </header>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-6"
+      data-testid="ticket-from-qr-form"
+    >
+      <input type="hidden" {...register("assetUuid")} />
 
       <AssetPrefillCard asset={asset} />
 
-      <form className="grid gap-4" onSubmit={onSubmit}>
-        <label className="grid gap-1 text-sm text-slate-700" htmlFor="descripcion">
-          Descripcion de la falla
-          <textarea
-            id="descripcion"
-            className="min-h-32 rounded-md border border-slate-300 px-3 py-2 outline-none transition focus:border-slate-500"
-            placeholder="Describe la falla observada"
-            {...register("descripcion")}
-          />
-          {errors.descripcion && (
-            <span className="text-xs text-rose-700">{errors.descripcion.message}</span>
+      <div className="rounded-lg border bg-card p-6 shadow-sm">
+        <h2 className="mb-4 text-xl font-semibold">Reportar Falla</h2>
+
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium">
+              Descripción <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              id="description"
+              {...register("description")}
+              rows={4}
+              className="mt-1 w-full rounded-md border border-input px-3 py-2 text-sm"
+              placeholder="Describe detalladamente la falla encontrada..."
+            />
+            {errors.description && (
+              <p className="mt-1 text-sm text-red-500" role="alert">
+                {errors.description.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="category" className="block text-sm font-medium">
+              Categoría <span className="text-red-500">*</span>
+            </label>
+            <select
+              id="category"
+              {...register("category")}
+              className="mt-1 w-full rounded-md border border-input px-3 py-2 text-sm"
+            >
+              <option value="">Selecciona una categoría</option>
+              {TICKET_CATEGORIES.map((category) => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            {errors.category && (
+              <p className="mt-1 text-sm text-red-500" role="alert">
+                {errors.category.message}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="priority" className="block text-sm font-medium">
+              Prioridad
+            </label>
+            <select
+              id="priority"
+              {...register("priority")}
+              className="mt-1 w-full rounded-md border border-input px-3 py-2 text-sm"
+            >
+              <option value="">Selecciona una prioridad (opcional)</option>
+              {TICKET_PRIORITIES.map((priority) => (
+                <option key={priority} value={priority}>
+                  {priority}
+                </option>
+              ))}
+            </select>
+            {errors.priority && (
+              <p className="mt-1 text-sm text-red-500" role="alert">
+                {errors.priority.message}
+              </p>
+            )}
+          </div>
+
+          {submitError && (
+            <div
+              className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-800"
+              role="alert"
+              data-testid="ticket-submit-error"
+            >
+              {submitError}
+            </div>
           )}
-        </label>
 
-        <label className="grid gap-1 text-sm text-slate-700" htmlFor="categoria">
-          Categoria
-          <select
-            id="categoria"
-            className="rounded-md border border-slate-300 px-3 py-2 outline-none transition focus:border-slate-500"
-            defaultValue=""
-            {...register("categoria")}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            <option value="" disabled>
-              Selecciona una categoria
-            </option>
-            {TICKET_CATEGORIES.map((category) => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
-          {errors.categoria && <span className="text-xs text-rose-700">{errors.categoria.message}</span>}
-        </label>
-
-        <label className="grid gap-1 text-sm text-slate-700" htmlFor="prioridad">
-          Prioridad
-          <select
-            id="prioridad"
-            className="rounded-md border border-slate-300 px-3 py-2 outline-none transition focus:border-slate-500"
-            {...register("prioridad")}
-          >
-            {TICKET_PRIORITIES.map((priority) => (
-              <option key={priority} value={priority}>
-                {priority}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <p className="text-xs text-slate-500">Adjuntos: reservados para habilitacion futura.</p>
-
-        {submitError && (
-          <p className="rounded-md border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">{submitError}</p>
-        )}
-
-        {result && (
-          <p className="rounded-md border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700">
-            Ticket creado correctamente: {result.codigo}
-          </p>
-        )}
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="rounded-md bg-slate-900 px-4 py-2 text-sm font-medium text-white transition enabled:hover:bg-slate-700 disabled:cursor-not-allowed disabled:bg-slate-400"
-        >
-          {isSubmitting ? "Enviando..." : "Crear ticket"}
-        </button>
-      </form>
-    </section>
+            {isSubmitting ? "Creando ticket..." : "Crear Ticket"}
+          </button>
+        </div>
+      </div>
+    </form>
   );
 }

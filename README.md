@@ -30,19 +30,19 @@ src/
 ## Primeros pasos
 
 ```bash
-npm install
+pnpm install
 cp .env.example .env.local
-npm run dev
+pnpm run dev
 ```
 
 ## Scripts
 
 ```bash
-npm run dev
-npm run build
-npm run lint
-npm run test
-npm run test:e2e
+pnpm run dev
+pnpm run build
+pnpm run lint
+pnpm run test
+pnpm run test:e2e
 ```
 
 ## Variables de entorno
