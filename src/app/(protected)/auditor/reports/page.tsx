@@ -60,10 +60,38 @@ export default function AuditorReportsPage() {
           <>
             {summary && (
               <>
-                <ReportKpiCard kpi={{ id: "total-tickets", label: "Total Tickets", value: summary.totalTickets, unit: "tickets" }} />
-                <ReportKpiCard kpi={{ id: "open-tickets", label: "Tickets Abiertos", value: summary.openTickets, unit: "tickets" }} />
-                <ReportKpiCard kpi={{ id: "resolved-tickets", label: "Tickets Resueltos", value: summary.resolvedTickets, unit: "tickets" }} />
-                <ReportKpiCard kpi={{ id: "total-assets", label: "Total Activos", value: summary.totalAssets, unit: "activos" }} />
+                <ReportKpiCard
+                  kpi={{
+                    id: "total-tickets",
+                    label: "Total Tickets",
+                    value: summary.totalTickets,
+                    unit: "tickets",
+                  }}
+                />
+                <ReportKpiCard
+                  kpi={{
+                    id: "open-tickets",
+                    label: "Tickets Abiertos",
+                    value: summary.openTickets,
+                    unit: "tickets",
+                  }}
+                />
+                <ReportKpiCard
+                  kpi={{
+                    id: "resolved-tickets",
+                    label: "Tickets Resueltos",
+                    value: summary.resolvedTickets,
+                    unit: "tickets",
+                  }}
+                />
+                <ReportKpiCard
+                  kpi={{
+                    id: "total-assets",
+                    label: "Total Activos",
+                    value: summary.totalAssets,
+                    unit: "activos",
+                  }}
+                />
               </>
             )}
           </>
@@ -72,8 +100,10 @@ export default function AuditorReportsPage() {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        {/* Tickets by Category Chart */}
         <TicketsByCategoryChart data={ticketsByCategory} />
 
+        {/* Top Assets with Incidents */}
         {summary?.topAssetsWithIncidents && summary.topAssetsWithIncidents.length > 0 && (
           <div className="rounded-lg border bg-white p-6 shadow-sm">
             <h3 className="mb-4 text-lg font-semibold text-gray-900">
@@ -81,7 +111,10 @@ export default function AuditorReportsPage() {
             </h3>
             <div className="space-y-3">
               {summary.topAssetsWithIncidents.map((asset, index) => (
-                <div key={asset.assetId} className="flex items-center justify-between rounded bg-gray-50 p-3">
+                <div
+                  key={asset.assetId}
+                  className="flex items-center justify-between rounded bg-gray-50 p-3"
+                >
                   <span className="flex items-center gap-2 text-sm font-medium text-gray-700">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs">
                       {index + 1}

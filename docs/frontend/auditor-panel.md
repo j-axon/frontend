@@ -32,9 +32,9 @@ El Panel de Auditoría es una sección de solo lectura destinada al rol **AUDITO
 ```
 src/
 ├── app/(protected)/auditor/
-│   ├── layout.tsx
-│   ├── audit-logs/page.tsx
-│   └── reports/page.tsx
+│   ├── layout.tsx              # Layout del panel de auditor
+│   ├── audit-logs/page.tsx    # Página de logs
+│   └── reports/page.tsx       # Página de reportes
 ├── features/
 │   ├── audit/
 │   │   ├── components/
@@ -51,6 +51,8 @@ src/
 ├── types/
 │   ├── audit.ts
 │   └── reports.ts
+└── shared/components/navigation/
+    └── Sidebar.tsx
 ```
 
 ### Servicios API
@@ -58,6 +60,7 @@ src/
 #### Audit Service
 
 ```typescript
+// GET /api/audit/logs?page=1&pageSize=20&action=LOGIN&startDate=2024-01-01
 getAuditLogs(params: {
   userId?: string;
   action?: AuditAction;
@@ -72,8 +75,13 @@ getAuditLogs(params: {
 #### Reports Service
 
 ```typescript
+// GET /api/reports/summary
 getReportsSummary(params: ReportsFilters): Promise<ReportsSummary>
+
+// GET /api/reports/kpis
 getKPIs(): Promise<ReportKPI[]>
+
+// GET /api/reports/tickets-by-category
 getTicketsByCategory(): Promise<TicketsByCategory[]>
 ```
 
@@ -89,14 +97,14 @@ getTicketsByCategory(): Promise<TicketsByCategory[]>
 
 | ID | Tipo | Descripción |
 |----|------|-------------|
-| CP-FE-AUDIT-001 | Componente | Tabla de logs |
-| CP-FE-REPORT-001 | Componente | Cards KPI |
+| CP-FE-AUDIT-001 | Componente | Tabla de logs renderiza correctamente |
+| CP-FE-REPORT-001 | Componente | Cards KPI muestran valores |
 | E2E-FE-AUDIT-001 | E2E | Acceso al panel solo lectura |
 
 ### Dependencias
 
-- ISSUE-FE-003: Autenticación y RBAC
-- ISSUE-BE-AUDIT-REPORTS: Endpoints de auditoría y reportes
+- ** ISSUE-FE-003**: Autenticación y RBAC
+- ** ISSUE-BE-AUDIT-REPORTS**: Endpoints de auditoría y reportes
 
 ### Notas Técnicas
 

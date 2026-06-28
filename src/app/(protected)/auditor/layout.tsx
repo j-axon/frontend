@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ROLES } from "@/constants/roles";
 
 const auditorLinks = [
   { href: "/auditor/audit-logs", label: "Registros de Auditoría" },

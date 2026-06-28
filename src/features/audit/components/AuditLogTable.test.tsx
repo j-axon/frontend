@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { AuditLogTable } from "./AuditLogTable";
 import type { AuditLog } from "@/types/audit";
@@ -42,6 +42,8 @@ describe("AuditLogTable", () => {
     render(<AuditLogTable logs={mockLogs} isLoading={false} />);
     expect(screen.getByText("Juan Pérez")).toBeInTheDocument();
     expect(screen.getByText("María García")).toBeInTheDocument();
+    expect(screen.getByText("Inicio de sesión")).toBeInTheDocument();
+    expect(screen.getByText("Crear ticket")).toBeInTheDocument();
   });
 
   it("renders table headers", () => {
@@ -49,5 +51,8 @@ describe("AuditLogTable", () => {
     expect(screen.getByText("Fecha")).toBeInTheDocument();
     expect(screen.getByText("Usuario")).toBeInTheDocument();
     expect(screen.getByText("Acción")).toBeInTheDocument();
+    expect(screen.getByText("Tipo Entidad")).toBeInTheDocument();
+    expect(screen.getByText("Detalles")).toBeInTheDocument();
+    expect(screen.getByText("IP")).toBeInTheDocument();
   });
 });

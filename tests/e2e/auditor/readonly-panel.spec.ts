@@ -17,6 +17,7 @@ test.describe("Auditor Read-only Panel", () => {
 
   test("E2E-FE-AUDIT-003: Audit logs page has no edit buttons", async ({ page }) => {
     await page.goto("/auditor/audit-logs");
+    // Should not have any edit, create, or delete buttons
     const editButtons = await page.locator("button:has-text('Editar')").count();
     const deleteButtons = await page.locator("button:has-text('Eliminar')").count();
     const createButtons = await page.locator("button:has-text('Crear')").count();
@@ -28,6 +29,7 @@ test.describe("Auditor Read-only Panel", () => {
 
   test("E2E-FE-AUDIT-004: Reports page has no edit buttons", async ({ page }) => {
     await page.goto("/auditor/reports");
+    // Should not have any edit, create, or delete buttons
     const editButtons = await page.locator("button:has-text('Editar')").count();
     const deleteButtons = await page.locator("button:has-text('Eliminar')").count();
     const createButtons = await page.locator("button:has-text('Crear')").count();

@@ -26,19 +26,29 @@ describe("ReportKpiCard", () => {
   });
 
   it("renders trend arrow for down trend", () => {
-    const downTrendKPI: ReportKPI = { ...mockKPI, trend: "down" };
+    const downTrendKPI: ReportKPI = {
+      ...mockKPI,
+      trend: "down",
+    };
     render(<ReportKpiCard kpi={downTrendKPI} />);
     expect(screen.getByText("↓")).toBeInTheDocument();
   });
 
   it("renders trend arrow for neutral trend", () => {
-    const neutralTrendKPI: ReportKPI = { ...mockKPI, trend: "neutral" };
+    const neutralTrendKPI: ReportKPI = {
+      ...mockKPI,
+      trend: "neutral",
+    };
     render(<ReportKpiCard kpi={neutralTrendKPI} />);
     expect(screen.getByText("→")).toBeInTheDocument();
   });
 
   it("does not render trend when not provided", () => {
-    const noTrendKPI: ReportKPI = { id: "test", label: "Test", value: 100 };
+    const noTrendKPI: ReportKPI = {
+      id: "test",
+      label: "Test",
+      value: 100,
+    };
     render(<ReportKpiCard kpi={noTrendKPI} />);
     expect(screen.queryByText("↑")).not.toBeInTheDocument();
     expect(screen.queryByText("↓")).not.toBeInTheDocument();
