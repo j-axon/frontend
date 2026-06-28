@@ -4,3 +4,8 @@ export function useWebSocket() {
     connected: false
   };
 }
+
+// Compat alias: MyTicketsList (companion code) expects this name.
+export function useWebSocketSubscription(_args: unknown) {
+  return useWebSocket();
+}
