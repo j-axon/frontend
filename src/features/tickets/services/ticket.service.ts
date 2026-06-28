@@ -1,42 +1,14 @@
 import { httpClient } from "@/lib/api/http-client";
-import type { TicketStatus } from "@/types/ticket";
+import {
+  CreateTicketRequest,
+  CreateTicketResponse,
+} from "@/features/tickets/types/ticket.types";
 
-export type TechnicianTicket = {
-  id: string;
-  code: string;
-  title: string;
-  description: string;
-  status: TicketStatus;
-  createdAt: string;
-  updatedAt: string;
-  asset: {
-    id: string;
-    code: string;
-    name: string;
-  };
-  owner: {
-    id: string;
-    name: string;
-  };
-};
-
-type TechnicianTicketsApiResponse = {
-  items: TechnicianTicket[];
-};
-
-async function fetchTechnicianTickets(): Promise<TechnicianTicket[]> {
-  const response = await httpClient<TechnicianTicketsApiResponse>("/v1/tickets/technician");
-  return response.items;
-}
-
-async function updateTicketStatus(ticketId: string, status: TicketStatus): Promise<void> {
-  await httpClient(`/v1/tickets/${ticketId}/status`, {
-    method: "PATCH",
-    body: { status }
+export async function createTicket(
+  data: CreateTicketRequest
+): Promise<CreateTicketResponse> {
+  return httpClient<CreateTicketResponse>("/v1/tickets", {
+    method: "POST",
+    body: data,
   });
 }
-
-export const ticketService = {
-  fetchTechnicianTickets,
-  updateTicketStatus
-};
