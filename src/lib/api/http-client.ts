@@ -9,6 +9,16 @@ type RequestOptions = {
   headers?: HeadersInit;
 };
 
+export class HttpClientError extends Error {
+  status: number;
+
+  constructor(status: number, message?: string) {
+    super(message ?? `HTTP error ${status}`);
+    this.name = "HttpClientError";
+    this.status = status;
+  }
+}
+
 export async function httpClient<TResponse>(
   path: string,
   options: RequestOptions = {}
