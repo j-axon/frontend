@@ -7,7 +7,7 @@ import { LoadingState } from "@/shared/components/feedback/LoadingState";
 import { QrScanner } from "@/components/qr/components/QrScanner";
 
 export default function TicketScanPage() {
-    const router = useRouter();
+  const router = useRouter();
     const [isLoadingAsset, setIsloadingAsset] = useState<boolean>(false);
     const [fetchError, setFetchError] = useState<string | null>(null);
 
@@ -15,50 +15,61 @@ export default function TicketScanPage() {
         setIsloadingAsset(true);
         setFetchError(null);
 
-        try {
+    try {
             const asset = await assetQrService.getAssetByUuid(assetId);
             router.push(`/tickets/new?assetId=${asset.id}&code=${asset.code}`);
         } catch (error: any) {
             setFetchError(error?.message || "El activo no existe o no tienes permiso.");
             setIsloadingAsset(false);
-        }
-    };
+    }
+  };
 
-    return (
-        <div className="mx-auto max-w-md space-y-6">
-            <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
-                <div className="mb-6 text-center">
-                    <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-                        Apertura rápida de Tickets
-                    </h1>
-                    <p className="mt-2 text-xs text-gray-500">
-                        Escanea el código QR del activo para iniciar un ticket
-                    </p>
-                </div>
-
-                {isLoadingAsset ? (
-                    <div className="py-12">
-                        <LoadingState />
-                        <p className="-mt-4 text-center text-xs font-medium text-gray-500">
-                            Buscando activo en el sistema...
-                        </p>
-                    </div>
-                ) : (
-                    <QrScanner onAssetFound={handleAssetFound} />
-                )}
-
-                {fetchError && (
-                    <div className="mt-5 rounded-lg border border-red-200 bg-red-50 p-3 text-center">
-                        <p className="text-xs font-semibold text-red-600">{fetchError}</p>
-                        <button
-                            onClick={() => window.location.reload()}
-                            className="mt-3 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-sm transition-all hover:bg-gray-50 active:scale-[0.99]"
-                        >
-                            Reintentar escaneo
-                        </button>
-                    </div>
-                )}
-            </div>
+  return (
+    <div className="mx-auto max-w-md space-y-6">
+      <div className="rounded-xl border bg-card p-8 shadow-sm">
+        <div className="mb-6 text-center">
+          <h1 className="text-3xl font-bold tracking-tight">
+            Apertura rápida de Tickets
+          </h1>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Escanea el código QR del activo o ingresa su identificador para
+            continuar al formulario.
+          </p>
         </div>
-    );
+
+        <form onSubmit={handleContinue} className="space-y-4">
+          <div>
+            <label htmlFor="assetId" className="block text-sm font-medium">
+              Identificador del activo (UUID)
+            </label>
+            <input
+              id="assetId"
+              type="text"
+              value={assetId}
+              onChange={(event) => setAssetId(event.target.value)}
+              disabled={isLoading}
+              placeholder="Ej: 550e8400-e29b-41d4-a716-446655440000"
+              className="mt-1 w-full rounded-md border border-input px-3 py-2 text-sm"
+              data-testid="scan-asset-id-input"
+            />
+          </div>
+
+          {error && (
+            <p className="text-sm text-red-600" role="alert" data-testid="scan-error">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:opacity-50"
+            data-testid="scan-continue-button"
+          >
+            {isLoading ? "Validando activo..." : "Continuar al formulario"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
