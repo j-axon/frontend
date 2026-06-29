@@ -31,8 +31,20 @@ type OrphanAssetsApiResponse = {
 };
 
 async function fetchAdminAssets(): Promise<AdminAsset[]> {
-  const response = await httpClient<AdminAssetsApiResponse>("/v1/assets/admin");
-  return response.items;
+  // Backend has no GET /v1/assets (list) endpoint yet. /v1/orphans
+  // returns the only asset list the backend exposes today. Until a
+  // dedicated /v1/assets list is added, the panel shows what is in
+  // /v1/orphans (which is every asset the backend can list).
+  const response = await httpClient<OrphanAssetsApiResponse>("/v1/orphans");
+  return response.items.map((o) => ({
+    id: o.id,
+    code: o.code,
+    name: o.name,
+    description: o.description,
+    status: "INACTIVE" as const,
+    createdAt: o.discoveredAt,
+    updatedAt: o.discoveredAt,
+  }));
 }
 
 async function createAsset(data: {
