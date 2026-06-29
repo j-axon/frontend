@@ -1,0 +1,123 @@
+
+> j-axon-frontend@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.0.3
+   - Local:        http://localhost:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 4.2s
+ ○ Compiling /src/middleware ...
+ ✓ Compiled /src/middleware in 925ms (91 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 8.6s (768 modules)
+ GET / 500 in 9269ms
+ ⨯ ..\src\QueryClientProvider.tsx (18:11) @ useQueryClient
+ ⨯ Error: No QueryClient set, use QueryClientProvider to set one
+    at useCurrentUser (./src/features/auth/hooks/useCurrentUser.ts:34:82)
+    at AppProviders (./src/app/providers.tsx:22:88)
+digest: "1387628040"
+  16 |
+  17 |   if (!client) {
+> 18 |     throw new Error('No QueryClient set, use QueryClientProvider to set one')
+     |           ^
+  19 |   }
+  20 |
+  21 |   return client
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../typescript/lib/typescript' in c:\Users\stive\Downloads\frontend\node_modules\next\dist\build for build dependencies doesn't lead to expected result 'C:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js', but to 'c:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../typescript/lib/typescript (expected C:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js)
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\load-jsconfig.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\load-jsconfig.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack-config.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack-config.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\handle-externals.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\handle-externals.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../typescript/lib/typescript' in c:\Users\stive\Downloads\frontend\node_modules\next\dist\build for build dependencies doesn't lead to expected result 'C:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js', but to 'c:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../typescript/lib/typescript (expected C:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js)
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\load-jsconfig.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\load-jsconfig.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\server\dev\turbopack-utils.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\server\dev\turbopack-utils.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\swc\index.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\analysis\parse-module.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\analysis\get-page-static-info.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js
+<w>  at resolve commonjs c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-flight-loader\index.js
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Resolving '../../../typescript/lib/typescript' in c:\Users\stive\Downloads\frontend\node_modules\next\dist\build for build dependencies doesn't lead to expected result 'C:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js', but to 'c:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js' instead. Resolving dependencies are ignored for this path.
+<w>  at resolve commonjs file ../../../typescript/lib/typescript (expected C:\Users\stive\Downloads\frontend\node_modules\typescript\lib\typescript.js)
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\load-jsconfig.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\load-jsconfig.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\server\dev\turbopack-utils.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\server\dev\turbopack-utils.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\swc\index.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\swc\index.js
+<w>  at file dependencies c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at file c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+<w>  at resolve commonjs c:\Users\stive\Downloads\frontend\node_modules\next\dist\build\webpack\loaders\next-swc-loader.js
+ ⨯ ..\src\QueryClientProvider.tsx (18:11) @ useQueryClient
+ ⨯ Error: No QueryClient set, use QueryClientProvider to set one
+    at useCurrentUser (./src/features/auth/hooks/useCurrentUser.ts:34:82)
+    at AppProviders (./src/app/providers.tsx:22:88)
+digest: "1387628040"
+  16 |
+  17 |   if (!client) {
+> 18 |     throw new Error('No QueryClient set, use QueryClientProvider to set one')
+     |           ^
+  19 |   }
+  20 |
+  21 |   return client
+ GET / 500 in 55ms
+ ✓ Compiled in 810ms (768 modules)
+ GET / 200 in 215ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1202ms (804 modules)
+ GET /login 200 in 1385ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 654ms (837 modules)
+ GET /dashboard 200 in 921ms
+ ○ Compiling /qr/scan ...
+ ✓ Compiled /qr/scan in 1619ms (899 modules)
+ GET /qr/scan 200 in 1885ms
+ ○ Compiling /technician/tickets ...
+ ✓ Compiled /technician/tickets in 1301ms (920 modules)
+ GET /technician/tickets 200 in 1435ms
+ ○ Compiling /admin/assets ...
+ ✓ Compiled /admin/assets in 529ms (933 modules)
+ GET /admin/assets 200 in 689ms
+ ○ Compiling /admin/orphans ...
+ ✓ Compiled /admin/orphans in 636ms (948 modules)
+ GET /admin/orphans 200 in 752ms
+ ○ Compiling /auditor/audit ...
+ ✓ Compiled /auditor/audit in 598ms (963 modules)
+ GET /auditor/audit 200 in 712ms
+ ○ Compiling /auditor/reports ...
+ ✓ Compiled /auditor/reports in 671ms (978 modules)
+ GET /auditor/reports 200 in 802ms
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 590ms (985 modules)
+ GET /notifications 200 in 705ms
+ ○ Compiling /my-tickets ...
+ ✓ Compiled /my-tickets in 670ms (996 modules)
+ GET /my-tickets 200 in 793ms
+ GET /login 200 in 88ms
+ GET /dashboard 200 in 55ms
+ GET /my-tickets 200 in 43ms
+ GET /qr/scan 200 in 44ms
+ GET /technician/tickets 200 in 42ms
+ GET /admin/assets 200 in 40ms
+ GET /admin/orphans 200 in 42ms
+ GET /auditor/audit 200 in 46ms
+ GET /auditor/reports 200 in 49ms
+ GET /notifications 200 in 41ms
+ GET / 200 in 64ms
+ GET /login 200 in 34ms
+ GET / 200 in 51ms
+ GET /login 200 in 28ms

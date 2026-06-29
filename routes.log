@@ -1,0 +1,20 @@
+/login HTTP=%{http_code}
+/dashboard HTTP=%{http_code}
+/qr/scan HTTP=%{http_code}
+/technician/tickets HTTP=%{http_code}
+/admin/assets HTTP=%{http_code}
+/admin/orphans HTTP=%{http_code}
+/auditor/audit HTTP=%{http_code}
+/auditor/reports HTTP=%{http_code}
+/notifications HTTP=%{http_code}
+/my-tickets HTTP=%{http_code}
+/login -> HTTP 200
+/dashboard -> HTTP 200
+/my-tickets -> HTTP 200
+/qr/scan -> HTTP 200
+/technician/tickets -> HTTP 200
+/admin/assets -> HTTP 200
+/admin/orphans -> HTTP 200
+/auditor/audit -> HTTP 200
+/auditor/reports -> HTTP 200
+/notifications -> HTTP 200
