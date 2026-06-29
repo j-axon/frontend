@@ -1,9 +1,6 @@
-import { httpClient } from "@/shared/lib/http/client"; 
-import { AssetQrResponse } from "../types/asset-qr.types";
+import { httpClient } from "@/lib/api/http-client";
+import { AssetQrResponse } from "@/features/assets/types/asset-qr.types";
 
-export const assetQrService = {
-  getAssetByUuid: async (uuid: string): Promise<AssetQrResponse> => {
-    const { data } = await httpClient.get<AssetQrResponse>(`/assets/qr/${uuid}`);
-    return data;
-  }
-};
+export async function getAssetByUuid(uuid: string): Promise<AssetQrResponse> {
+  return httpClient<AssetQrResponse>(`/v1/assets/qr/${uuid}`);
+}
