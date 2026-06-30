@@ -1,4 +1,4 @@
-import type { User } from "@/types/auth";
+import type { AuthUser } from "@/types/auth";
 
 export type TestUserRole = "ADMIN" | "TECHNICIAN" | "USER" | "AUDITOR";
 

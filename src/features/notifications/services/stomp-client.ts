@@ -1,6 +1,6 @@
 import { Client, IFrame, IMessage, StompSubscription } from "@stomp/stompjs";
 import { env } from "@/lib/env";
-import type { StompMessage } from "@/features/notifications/types/notification.types";
+import type { NotificationPayload, StompMessage } from "@/features/notifications/types/notification.types";
 
 type StompClientConfig = {
   onConnect?: () => void;
@@ -101,3 +101,45 @@ class StompClientManager {
 }
 
 export const stompClientManager = new StompClientManager();
+
+/**
+ * Backwards-compatible API expected by useNotificationsSocket.
+ * The newer `stompClientManager` takes a config object; the legacy helpers
+ * here keep the imperative signature used by hooks.
+ */
+export const stompClient = {
+  connect(): Promise<void> {
+    stompClientManager.connect({});
+    return Promise.resolve();
+  },
+  disconnect(): void {
+    stompClientManager.disconnect();
+  },
+  isConnected(): boolean {
+    return stompClientManager.isConnected();
+  },
+};
+
+const notificationHandlers = new Map<string, (message: IMessage) => void>();
+
+export function subscribeToUserNotifications(
+  userId: string,
+  handler: (payload: NotificationPayload) => void
+): void {
+  const destination = `/user/queue/notifications/${userId}`;
+  const wrapped = (message: IMessage) => {
+    try {
+      handler(JSON.parse(message.body) as NotificationPayload);
+    } catch (error) {
+      console.error("Error parsing user notification:", error);
+    }
+  };
+  notificationHandlers.set(userId, wrapped);
+  stompClientManager.subscribe(destination, wrapped as (message: unknown) => void);
+}
+
+export function unsubscribeFromUserNotifications(userId: string): void {
+  const destination = `/user/queue/notifications/${userId}`;
+  stompClientManager.unsubscribe(destination);
+  notificationHandlers.delete(userId);
+}

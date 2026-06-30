@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { AppNotification } from "../types/notification.types";
+import type { Notification } from "../types/notification.types";
 
 export type NotificationToastProps = {
-  notification: AppNotification;
+  notification: Notification;
   onDismiss: () => void;
   duration?: number;
 };
@@ -22,13 +22,14 @@ function getNotificationIcon(type: string): string {
   return icons[type] || "📢";
 }
 
-function getPriorityStyles(priority: string): string {
+function getPriorityStyles(priority: string | undefined): { bg: string; border: string; icon: string } {
   const styles: Record<string, { bg: string; border: string; icon: string }> = {
-    high: { bg: "bg-red-50", border: "border-l-4 border-l-red-500", icon: "text-red-500" },
-    medium: { bg: "bg-yellow-50", border: "border-l-4 border-l-yellow-500", icon: "text-yellow-500" },
-    low: { bg: "bg-gray-50", border: "border-l-4 border-l-gray-400", icon: "text-gray-500" },
+    HIGH: { bg: "bg-red-50", border: "border-l-4 border-l-red-500", icon: "text-red-500" },
+    URGENT: { bg: "bg-red-50", border: "border-l-4 border-l-red-500", icon: "text-red-500" },
+    MEDIUM: { bg: "bg-yellow-50", border: "border-l-4 border-l-yellow-500", icon: "text-yellow-500" },
+    LOW: { bg: "bg-gray-50", border: "border-l-4 border-l-gray-400", icon: "text-gray-500" },
   };
-  return styles[priority] || styles.low;
+  return styles[priority ?? "LOW"] || styles.LOW;
 }
 
 export function NotificationToast({

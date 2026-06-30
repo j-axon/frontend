@@ -1,9 +1,9 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { NotificationBell } from "./NotificationBell";
-import type { AppNotification } from "../types/notification.types";
+import type { Notification } from "../types/notification.types";
 
-const mockNotification: AppNotification = {
+const mockNotification: Notification = {
   id: "1",
   type: "TICKET_UPDATED",
   title: "Ticket Actualizado",
@@ -14,7 +14,7 @@ const mockNotification: AppNotification = {
   timestamp: new Date().toISOString(),
 };
 
-const mockNotifications: AppNotification[] = [
+const mockNotifications: Notification[] = [
   mockNotification,
   {
     id: "2",

@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import type { AppNotification } from "../types/notification.types";
+import type { Notification } from "../types/notification.types";
 
 export type NotificationBellProps = {
-  notifications: AppNotification[];
+  notifications: Notification[];
   unreadCount: number;
   onMarkAsRead: (id: string) => void;
   onMarkAllAsRead: () => void;
@@ -25,13 +25,14 @@ function getNotificationIcon(type: string): string {
   return icons[type] || "📢";
 }
 
-function getPriorityColor(priority: string): string {
+function getPriorityColor(priority: string | undefined): string {
   const colors: Record<string, string> = {
-    high: "bg-red-100 border-red-300",
-    medium: "bg-yellow-100 border-yellow-300",
-    low: "bg-gray-100 border-gray-200",
+    HIGH: "bg-red-100 border-red-300",
+    URGENT: "bg-red-100 border-red-300",
+    MEDIUM: "bg-yellow-100 border-yellow-300",
+    LOW: "bg-gray-100 border-gray-200",
   };
-  return colors[priority] || colors.low;
+  return colors[priority ?? "LOW"] || colors.LOW;
 }
 
 function formatTime(timestamp: string): string {
@@ -73,7 +74,7 @@ export function NotificationBell({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleNotificationClick = (notification: AppNotification) => {
+  const handleNotificationClick = (notification: Notification) => {
     if (!notification.read) {
       onMarkAsRead(notification.id);
     }

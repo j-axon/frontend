@@ -95,16 +95,21 @@ export function TechnicianTicketQueue() {
 
               <div className="grid gap-1 text-sm text-slate-600">
                 <p>
-                  <span className="font-medium text-slate-900">Activo:</span> {ticket.asset.name} ({ticket.asset.code})
+                  <span className="font-medium text-slate-900">Activo:</span>{" "}
+                  {ticket.asset ? `${ticket.asset.name} (${ticket.asset.code})` : "—"}
                 </p>
                 <p>
-                  <span className="font-medium text-slate-900">Solicitante:</span> {ticket.owner.name}
+                  <span className="font-medium text-slate-900">Solicitante:</span>{" "}
+                  {ticket.owner?.name ?? "—"}
                 </p>
                 <p>
-                  <span className="font-medium text-slate-900">Creado:</span> {new Date(ticket.createdAt).toLocaleString("es-CO", {
-                    dateStyle: "medium",
-                    timeStyle: "short"
-                  })}
+                  <span className="font-medium text-slate-900">Creado:</span>{" "}
+                  {ticket.createdAt
+                    ? new Date(ticket.createdAt).toLocaleString("es-CO", {
+                        dateStyle: "medium",
+                        timeStyle: "short",
+                      })
+                    : "—"}
                 </p>
               </div>
             </Link>
