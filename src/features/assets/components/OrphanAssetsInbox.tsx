@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { adminAssetsService, type OrphanAsset } from "@/features/assets/services/admin-assets.service";
+import { adminAssetsService } from "@/features/assets/services/admin-assets.service";
 
 export function OrphanAssetsInbox() {
   const queryClient = useQueryClient();
