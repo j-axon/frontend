@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ReportKpiCard } from "@/features/reports/components/ReportKpiCard";
 import { TicketsByCategoryChart } from "@/features/reports/components/TicketsByCategoryChart";
-import { getReportsSummary, getKPIs } from "@/features/reports/services/reports.service";
+import { getReportsSummary, getKPIs, getTicketsByCategory } from "@/features/reports/services/reports.service";
 import type { ReportsSummary, ReportKPI, TicketsByCategory } from "@/types/reports";
 
 export default function AuditorReportsPage() {

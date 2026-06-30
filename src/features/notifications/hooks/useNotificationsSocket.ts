@@ -2,28 +2,31 @@
 
 import { useEffect, useCallback, useRef, useState } from "react";
 import { stompClient, subscribeToUserNotifications, unsubscribeFromUserNotifications } from "../services/stomp-client";
-import type { AppNotification, NotificationPayload } from "../types/notification.types";
+import type { Notification, NotificationPayload } from "../types/notification.types";
 import { useAuth } from "@/hooks/use-auth";
 
 const MAX_NOTIFICATIONS = 50;
 
 export function useNotificationsSocket() {
   const { user, isAuthenticated } = useAuth();
-  const [notifications, setNotifications] = useState<AppNotification[]>([]);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
   const [isConnected, setIsConnected] = useState(false);
   const [connectionError, setConnectionError] = useState<string | null>(null);
   const userIdRef = useRef<string | null>(null);
 
   const handleNotification = useCallback((payload: NotificationPayload) => {
-    const notification: AppNotification = {
+    const now = new Date().toISOString();
+    const notification: Notification = {
       id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       type: payload.type,
       title: payload.title,
       message: payload.message,
-      priority: payload.priority || "medium",
+      priority: payload.priority || "MEDIUM",
       ticketId: payload.ticketId,
+      ticketCode: payload.ticketCode,
       read: false,
-      timestamp: new Date().toISOString(),
+      timestamp: now,
+      createdAt: now,
       metadata: payload.metadata,
     };
 
