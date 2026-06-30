@@ -209,13 +209,17 @@ pnpm run dev
 
 ```bash
 # Unit + integration (Vitest + MSW)
-pnpm run test
-pnpm run test:run   # single run
+pnpm run test             # watch mode (dev)
+pnpm run test:coverage    # single run con coverage (CI / pre-PR)
 
 # E2E (Playwright)
-pnpm run test:e2e:install   # primera vez
+pnpm run test:e2e:install   # primera vez (descarga Chromium + deps)
 pnpm run test:e2e
 ```
+
+> Vitest está restringido por `vitest.config.ts` a `tests/unit/**`. Los tests
+> en `src/**/*.test.ts(x)` no corren con `pnpm run test`; están legacy o
+> requieren configuración adicional.
 
 ### Cobertura incluida
 
