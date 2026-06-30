@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { TicketStatusBadge } from "@features/tickets/components/TicketStatusBadge";
+import { PriorityBadge } from "@features/tickets/components/PriorityBadge";
 import type { Ticket } from "@features/tickets/types/tickets.types";
 import { ROUTES } from "@/constants/routes";
 
@@ -26,11 +27,11 @@ export function TechnicianQueue({ tickets }: { tickets: Ticket[] }) {
             href={ROUTES.technicianTicket(t.id)}
             className="flex items-center justify-between gap-3 rounded-lg border border-border bg-bg-soft px-4 py-3 hover:bg-muted"
           >
-            <div>
+            <div className="flex flex-col gap-1">
               <p className="font-medium text-fg">{t.title}</p>
               <p className="text-xs text-fg-soft">
-                {t.code} · {t.asset?.code ?? "sin activo"} · prioridad{" "}
-                <span className={priorityColor(t.priority)}>{t.priority}</span>
+                {t.code} · {t.asset?.code ?? "sin activo"} ·{" "}
+                <PriorityBadge priority={t.priority} />
               </p>
             </div>
             <TicketStatusBadge status={t.status} />
@@ -39,17 +40,4 @@ export function TechnicianQueue({ tickets }: { tickets: Ticket[] }) {
       ))}
     </ul>
   );
-}
-
-function priorityColor(p: string) {
-  switch (p) {
-    case "CRITICAL":
-      return "text-danger";
-    case "HIGH":
-      return "text-warning";
-    case "MEDIUM":
-      return "text-fg";
-    default:
-      return "text-fg-soft"
-  }
 }

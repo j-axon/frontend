@@ -20,7 +20,7 @@ export default function DashboardPage() {
       <section>
         <p className="text-sm text-fg-soft">{greeting}</p>
         <h1 className="mt-1 text-3xl font-bold text-fg">
-          Hola, {user.fullName.split(" ")[0]} 👋
+          Hola, {user.fullName.split(" ")[0] || user.username} 👋
         </h1>
         <p className="mt-1 text-fg-soft">
           Tu rol principal es{" "}

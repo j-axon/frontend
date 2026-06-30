@@ -1,5 +1,6 @@
 import { apiClient } from "@shared/lib/http/client";
 import type { AuthUser, RefreshResponse } from "@/types/auth";
+import { mapAuthUser } from "@features/auth/utils/mapAuthUser";
 
 export const sessionService = {
   /** Intenta renovar el access token con la cookie HttpOnly. */
@@ -13,6 +14,9 @@ export const sessionService = {
 
   /** Recupera el usuario actual; se asume que ya hay access token. */
   async me(): Promise<AuthUser> {
-    return apiClient<AuthUser>("/auth/me", { method: "GET" });
+    const raw = await apiClient<Parameters<typeof mapAuthUser>[0]>("/auth/me", {
+      method: "GET"
+    });
+    return mapAuthUser(raw);
   }
 };

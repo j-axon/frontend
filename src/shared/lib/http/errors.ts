@@ -25,7 +25,7 @@ export class ApiRequestError extends Error implements ApiError {
 }
 
 export async function normalizeApiError(response: Response): Promise<ApiRequestError> {
-  let payload: any = null;
+  let payload: unknown = null;
   try {
     payload = await response.clone().json();
   } catch {
@@ -35,13 +35,14 @@ export async function normalizeApiError(response: Response): Promise<ApiRequestE
       payload = null;
     }
   }
+  const p = (payload ?? {}) as { message?: string; error?: string; detail?: string; code?: ApiErrorCode };
   const message =
-    payload?.message ||
-    payload?.error ||
-    payload?.detail ||
+    p.message ||
+    p.error ||
+    p.detail ||
     response.statusText ||
     `Error HTTP ${response.status}`;
-  const code = (payload?.code as ApiErrorCode | undefined) ?? codeFromStatus(response.status);
+  const code = p.code ?? codeFromStatus(response.status);
   return new ApiRequestError(code, response.status, message, payload);
 }
 

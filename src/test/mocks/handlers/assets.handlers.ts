@@ -35,7 +35,7 @@ export const assetsHandlers = [
     })
   ),
   http.post(`${API}/assets`, async ({ request }) => {
-    const body = await request.json();
+    const body = (await request.json()) as Record<string, unknown>;
     return HttpResponse.json({ ...baseAsset, ...body, id: "asset-new-id" }, { status: 201 });
   }),
   http.get(`${API}/orphans`, () =>

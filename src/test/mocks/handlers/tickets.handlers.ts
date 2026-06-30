@@ -7,8 +7,8 @@ const baseTicket = {
   code: "TC-0001",
   title: "No enciende el monitor",
   description: "El equipo no responde",
-  status: "OPEN",
-  priority: "MEDIUM",
+  status: "ABIERTO",
+  priority: "MEDIA",
   category: "HARDWARE",
   asset: {
     id: "asset-1",
@@ -31,7 +31,7 @@ export const ticketsHandlers = [
   ),
   http.get(`${API}/tickets/:id`, () => HttpResponse.json(baseTicket)),
   http.post(`${API}/tickets`, async ({ request }) => {
-    const body = await request.json();
+    const body = (await request.json()) as Record<string, unknown>;
     return HttpResponse.json({ ...baseTicket, ...body, id: "tc-new-id" }, { status: 201 });
   }),
   http.post(`${API}/ai/tickets/:id/diagnose`, () =>

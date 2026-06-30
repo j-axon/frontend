@@ -29,7 +29,7 @@ export function CreateTicketForm({ qrUuid, onSuccess }: CreateTicketFormProps) {
       title: "",
       description: "",
       category: "HARDWARE",
-      priority: "MEDIUM"
+      priority: "MEDIA"
     }
   });
 
@@ -87,19 +87,19 @@ export function CreateTicketForm({ qrUuid, onSuccess }: CreateTicketFormProps) {
         >
           <option value="HARDWARE">Hardware</option>
           <option value="SOFTWARE">Software</option>
-          <option value="NETWORK">Red</option>
-          <option value="PERIPHERAL">Periférico</option>
-          <option value="OTHER">Otro</option>
+          <option value="RED">Red</option>
+          <option value="SEGURIDAD">Seguridad</option>
+          <option value="OTROS">Otros</option>
         </SelectField>
         <SelectField
           label="Prioridad"
           {...register("priority")}
           error={errors.priority?.message}
         >
-          <option value="LOW">Baja</option>
-          <option value="MEDIUM">Media</option>
-          <option value="HIGH">Alta</option>
-          <option value="CRITICAL">Crítica</option>
+          <option value="BAJA">Baja</option>
+          <option value="MEDIA">Media</option>
+          <option value="ALTA">Alta</option>
+          <option value="URGENTE">Urgente</option>
         </SelectField>
       </div>
 

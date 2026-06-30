@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Card } from "@shared/components/ui/Card";
 import { TicketStatusBadge } from "@features/tickets/components/TicketStatusBadge";
+import { PriorityBadge } from "@features/tickets/components/PriorityBadge";
 import type { Ticket } from "@features/tickets/types/tickets.types";
 
 export function TicketDetailPanel({ ticket }: { ticket: Ticket }) {
@@ -16,19 +17,7 @@ export function TicketDetailPanel({ ticket }: { ticket: Ticket }) {
         <Field label="Categoría" value={ticket.category} />
         <Field
           label="Prioridad"
-          value={
-            <span
-              className={
-                ticket.priority === "CRITICAL"
-                  ? "text-danger"
-                  : ticket.priority === "HIGH"
-                  ? "text-warning"
-                  : "text-fg"
-              }
-            >
-              {ticket.priority}
-            </span>
-          }
+          value={<PriorityBadge priority={ticket.priority} />}
         />
         <Field
           label="Reportado por"

@@ -3,6 +3,7 @@
 import { useCallback } from "react";
 import { useAuthStore } from "@features/auth/store/authStore";
 import { sessionService } from "@features/auth/services/sessionService";
+import { mapAuthUser } from "@features/auth/utils/mapAuthUser";
 import { tokenMemoryStore } from "@features/auth/utils/tokenMemoryStore";
 
 export function useRefreshSession() {
@@ -13,8 +14,11 @@ export function useRefreshSession() {
     try {
       const refreshed = await sessionService.refresh();
       tokenMemoryStore.set(refreshed.accessToken);
-      setSession(refreshed.usuario, refreshed.accessToken);
-      return refreshed.usuario;
+      const user = refreshed.usuario
+        ? mapAuthUser(refreshed.usuario)
+        : await sessionService.me();
+      setSession(user, refreshed.accessToken);
+      return user;
     } catch {
       tokenMemoryStore.clear();
       clearSession();

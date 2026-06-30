@@ -10,8 +10,8 @@ export const createTicketSchema = z.object({
     .string()
     .min(10, "Describe brevemente el problema (mín. 10 caracteres)")
     .max(1000, "Máximo 1000 caracteres"),
-  category: z.enum(["HARDWARE", "SOFTWARE", "NETWORK", "PERIPHERAL", "OTHER"]),
-  priority: z.enum(["LOW", "MEDIUM", "HIGH", "CRITICAL"])
+  category: z.enum(["HARDWARE", "SOFTWARE", "RED", "SEGURIDAD", "OTROS"]),
+  priority: z.enum(["BAJA", "MEDIA", "ALTA", "URGENTE"])
 });
 
 export type CreateTicketFormValues = z.infer<typeof createTicketSchema>;

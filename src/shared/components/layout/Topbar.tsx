@@ -7,6 +7,7 @@ import { useLogout } from "@features/auth/hooks/useLogout";
 import { useWebSocketNotifications } from "@features/notifications/hooks/useRealtimeNotifications";
 import { Button } from "@shared/components/ui/Button";
 import { Badge } from "@shared/components/ui/Badge";
+import { userInitials } from "@features/auth/utils/mapAuthUser";
 import { ROLES } from "@/constants/roles";
 
 export function Topbar() {
@@ -53,7 +54,7 @@ export function Topbar() {
               </p>
             </div>
             <div className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-sm font-semibold">
-              {initials(user.fullName)}
+              {userInitials(user.fullName)}
             </div>
             <Button variant="ghost" size="sm" onClick={logout}>
               Salir
@@ -70,15 +71,6 @@ export function Topbar() {
       </div>
     </header>
   );
-}
-
-function initials(fullName: string) {
-  return fullName
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((s) => s[0]?.toUpperCase() ?? "")
-    .join("");
 }
 
 // Helper unused (kept exported for future): role chip

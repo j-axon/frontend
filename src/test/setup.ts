@@ -7,19 +7,16 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 // Polyfill TextEncoder/TextDecoder por jsdom
-import { TextEncoder, TextDecoder } from "node:util";
+import { TextEncoder as NodeTextEncoder, TextDecoder as NodeTextDecoder } from "node:util";
 if (typeof globalThis.TextEncoder === "undefined") {
-  // @ts-expect-error asignar global
-  globalThis.TextEncoder = TextEncoder;
+  globalThis.TextEncoder = NodeTextEncoder as unknown as typeof globalThis.TextEncoder;
 }
 if (typeof globalThis.TextDecoder === "undefined") {
-  // @ts-expect-error asignar global
-  globalThis.TextDecoder = TextDecoder;
+  globalThis.TextDecoder = NodeTextDecoder as unknown as typeof globalThis.TextDecoder;
 }
 
 // matchMedia no existe en jsdom
 if (typeof window !== "undefined" && !window.matchMedia) {
-  // @ts-expect-error stub
   window.matchMedia = (query: string) => ({
     matches: false,
     media: query,

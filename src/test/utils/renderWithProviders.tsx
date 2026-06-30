@@ -11,6 +11,23 @@ export function createTestQueryClient() {
   });
 }
 
+// Mock de next/navigation para tests jsdom (Next 15 requiere App Router montado).
+// Permite usar useRouter(), usePathname() y useSearchParams() sin envolver en <Router>.
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({
+    push: vi.fn(),
+    replace: vi.fn(),
+    refresh: vi.fn(),
+    back: vi.fn(),
+    forward: vi.fn(),
+    prefetch: vi.fn()
+  }),
+  usePathname: () => "/",
+  useSearchParams: () => new URLSearchParams()
+}));
+
+import { vi } from "vitest";
+
 export function renderWithProviders(
   ui: React.ReactNode,
   options: Omit<RenderOptions, "queries"> & { client?: QueryClient } = {}
