@@ -1,4 +1,4 @@
-import { Client, StompSubscription } from "@stomp/stompjs";
+import { Client, IFrame, IMessage, StompSubscription } from "@stomp/stompjs";
 import { env } from "@/lib/env";
 import type { StompMessage } from "@/features/notifications/types/notification.types";
 
@@ -6,7 +6,7 @@ type StompClientConfig = {
   onConnect?: () => void;
   onDisconnect?: () => void;
   onMessage?: (message: StompMessage) => void;
-  onError?: (error: any) => void;
+  onError?: (error: IFrame) => void;
 };
 
 class StompClientManager {
@@ -35,7 +35,7 @@ class StompClientManager {
         console.log("STOMP client disconnected");
         config.onDisconnect?.();
       },
-      onStompError: (frame: any) => {
+      onStompError: (frame: IFrame) => {
         console.error("STOMP error:", frame);
         config.onError?.(frame);
       },
@@ -65,7 +65,7 @@ class StompClientManager {
       return;
     }
 
-    const subscription = this.client.subscribe(destination, (message: any) => {
+    const subscription = this.client.subscribe(destination, (message: IMessage) => {
       try {
         const parsed = JSON.parse(message.body) as StompMessage;
         callback(parsed);

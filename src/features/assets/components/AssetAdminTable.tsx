@@ -1,8 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { adminAssetsService, type AdminAsset } from "@/features/assets/services/admin-assets.service";
+import { adminAssetsService } from "@/features/assets/services/admin-assets.service";
 import { QrDownloadButton } from "@/features/assets/components/QrDownloadButton";
 
 export function AssetAdminTable() {

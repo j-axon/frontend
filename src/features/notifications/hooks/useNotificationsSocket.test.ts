@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { renderHook, act, waitFor } from "@testing-library/react";
 import { useNotificationsSocket } from "./useNotificationsSocket";
-import * as stompClientModule from "../services/stomp-client";
 import * as authModule from "@/hooks/use-auth";
 
 vi.mock("../services/stomp-client", () => ({
@@ -22,6 +21,9 @@ vi.mock("@/hooks/use-auth", () => ({
   useAuth: vi.fn(),
 }));
 
+type AuthState = ReturnType<typeof authModule.useAuth>;
+type UserRole = "ADMIN" | "USER" | "TECHNICIAN" | "AUDITOR";
+
 describe("useNotificationsSocket", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -31,7 +33,7 @@ describe("useNotificationsSocket", () => {
     vi.mocked(authModule.useAuth).mockReturnValue({
       user: null,
       isAuthenticated: false,
-    } as any);
+    } satisfies Partial<AuthState> as AuthState);
 
     const { result } = renderHook(() => useNotificationsSocket());
 
@@ -41,12 +43,17 @@ describe("useNotificationsSocket", () => {
   });
 
   it("connects when authenticated", async () => {
-    const mockUser = { id: "user-1", name: "Test User", email: "test@test.com", roles: ["USER"] as any };
-    
+    const mockUser = {
+      id: "user-1",
+      name: "Test User",
+      email: "test@test.com",
+      roles: ["USER"] as UserRole[],
+    };
+
     vi.mocked(authModule.useAuth).mockReturnValue({
       user: mockUser,
       isAuthenticated: true,
-    });
+    } satisfies Partial<AuthState> as AuthState);
 
     const { result } = renderHook(() => useNotificationsSocket());
 
@@ -59,7 +66,7 @@ describe("useNotificationsSocket", () => {
     vi.mocked(authModule.useAuth).mockReturnValue({
       user: null,
       isAuthenticated: false,
-    });
+    } satisfies Partial<AuthState> as AuthState);
 
     const { result } = renderHook(() => useNotificationsSocket());
 
@@ -72,7 +79,7 @@ describe("useNotificationsSocket", () => {
     vi.mocked(authModule.useAuth).mockReturnValue({
       user: null,
       isAuthenticated: false,
-    } as any);
+    } satisfies Partial<AuthState> as AuthState);
 
     const { result } = renderHook(() => useNotificationsSocket());
 
@@ -88,7 +95,7 @@ describe("useNotificationsSocket", () => {
     vi.mocked(authModule.useAuth).mockReturnValue({
       user: null,
       isAuthenticated: false,
-    } as any);
+    } satisfies Partial<AuthState> as AuthState);
 
     const { result } = renderHook(() => useNotificationsSocket());
 
