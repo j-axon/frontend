@@ -22,7 +22,10 @@ export const ROUTES = {
 
   // Auditor
   auditLogs: "/auditor/audit",
-  reports: "/auditor/reports"
+  reports: "/auditor/reports",
+
+  // Admin / Técnico
+  network: "/network"
 } as const;
 
 export const PUBLIC_ROUTES: string[] = ["/", "/login"];

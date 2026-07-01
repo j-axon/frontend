@@ -21,18 +21,28 @@ export function CreateAssetForm() {
     formState: { errors }
   } = useForm<AssetFormValues>({
     resolver: zodResolver(assetSchema),
-    defaultValues: { code: "", name: "", serialNumber: "", description: "", assignedUserId: "" }
+    defaultValues: {
+      codigoInventario: "",
+      nombre: "",
+      tipo: "",
+      marca: "",
+      modelo: "",
+      serial: "",
+      ubicacion: ""
+    }
   });
   const [serverError, setServerError] = React.useState<string | null>(null);
 
   const mutation = useMutation({
     mutationFn: (values: AssetFormValues) =>
       adminAssetsService.create({
-        code: values.code,
-        name: values.name,
-        serialNumber: values.serialNumber || undefined,
-        description: values.description || undefined,
-        assignedUserId: values.assignedUserId || undefined
+        codigoInventario: values.codigoInventario,
+        nombre: values.nombre,
+        tipo: values.tipo || undefined,
+        marca: values.marca || undefined,
+        modelo: values.modelo || undefined,
+        serial: values.serial || undefined,
+        ubicacion: values.ubicacion || undefined
       })
   });
 
@@ -52,23 +62,45 @@ export function CreateAssetForm() {
 
   return (
     <form noValidate onSubmit={onSubmit} className="flex flex-col gap-4">
-      <Input label="Código inventario" {...register("code")} error={errors.code?.message} />
-      <Input label="Nombre" {...register("name")} error={errors.name?.message} />
+      <Input
+        label="Código inventario"
+        {...register("codigoInventario")}
+        error={errors.codigoInventario?.message}
+        required
+      />
+      <Input
+        label="Nombre"
+        {...register("nombre")}
+        error={errors.nombre?.message}
+        required
+      />
+      <Input
+        label="Tipo (opcional)"
+        {...register("tipo")}
+        error={errors.tipo?.message}
+        placeholder="Laptop, Desktop, Servidor…"
+      />
+      <Input
+        label="Marca (opcional)"
+        {...register("marca")}
+        error={errors.marca?.message}
+        placeholder="Lenovo, Dell, HP…"
+      />
+      <Input
+        label="Modelo (opcional)"
+        {...register("modelo")}
+        error={errors.modelo?.message}
+      />
       <Input
         label="Número de serie (opcional)"
-        {...register("serialNumber")}
-        error={errors.serialNumber?.message}
+        {...register("serial")}
+        error={errors.serial?.message}
       />
       <Input
-        label="Descripción (opcional)"
-        {...register("description")}
-        error={errors.description?.message}
-      />
-      <Input
-        label="ID del usuario asignado (opcional)"
-        {...register("assignedUserId")}
-        error={errors.assignedUserId?.message}
-        placeholder="uuid del usuario"
+        label="Ubicación (opcional)"
+        {...register("ubicacion")}
+        error={errors.ubicacion?.message}
+        placeholder="Oficina, depósito, sala de servidores…"
       />
 
       {serverError && (

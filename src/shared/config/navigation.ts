@@ -54,6 +54,13 @@ export const NAVIGATION: NavItem[] = [
     roles: [ROLES.ADMIN]
   },
   {
+    href: ROUTES.network,
+    label: "Escanear red",
+    icon: "📡",
+    description: "Descubre dispositivos",
+    roles: [ROLES.ADMIN, ROLES.TECNICO]
+  },
+  {
     href: ROUTES.auditLogs,
     label: "Auditoría",
     icon: "📜",

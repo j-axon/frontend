@@ -32,14 +32,19 @@ export type AssetQrResponse = {
   assignedUsername?: string;
 };
 
+/**
+ * Alineado con backend `CreateActivoRequest`:
+ *  - codigoInventario (required)
+ *  - nombre (required)
+ *  - tipo, marca, modelo, serial, ubicacion (opcionales)
+ *  - status NO se asigna desde la creación: lo decide el backend.
+ */
 export type CreateAssetRequest = {
-  code: string; // added because CreateAssetForm passes code
-  name: string;
-  serialNumber?: string;
-  model?: string;
-  brand?: string;
-  location?: string;
-  status?: AssetStatus;
-  description?: string; // added because CreateAssetForm passes description
-  assignedUserId?: string; // added because CreateAssetForm passes assignedUserId
+  codigoInventario: string;
+  nombre: string;
+  tipo?: string;
+  marca?: string;
+  modelo?: string;
+  serial?: string;
+  ubicacion?: string;
 };
